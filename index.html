@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CTFarsi | رویداد فتح پرچم کامیونیتی</title>
-  <meta name="description" content="CTFarsi: رویداد فتح پرچم مستقل و تخصصی امنیت سایبری برای کامیونیتی فارسی. چالش‌های واقعی، ضد هوش مصنوعی و زیرساخت پایدار.">
+  <meta name="description" content="CTFarsi: رویداد فتح پرچم مستقل و تخصصی امنیت سایبری برای کامیونیتی فارسی. چالش‌های واقعی، ضد هوش مصنوعی، زیرساخت پایدار و جوایز قطعی.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
@@ -20,6 +20,7 @@
       --terminal-header: #111827;
       --code-cyan: #38bdf8;
       --code-amber: #f59e0b;
+      --code-red: #f87171;
     }
 
     * {
@@ -171,9 +172,9 @@
     }
 
     h1 {
-      font-size: 40px;
+      font-size: 38px;
       font-weight: 900;
-      line-height: 1.25;
+      line-height: 1.3;
       margin-bottom: 20px;
       color: #fff;
     }
@@ -183,11 +184,11 @@
     }
 
     .lead {
-      font-size: 18px;
+      font-size: 17px;
       color: var(--muted);
-      max-width: 760px;
-      margin-bottom: 32px;
-      line-height: 1.8;
+      max-width: 820px;
+      margin-bottom: 28px;
+      line-height: 1.85;
     }
 
     .cli-box {
@@ -195,16 +196,29 @@
       border: 1px solid #1e293b;
       border-radius: 8px;
       padding: 16px 20px;
-      font-size: 14px;
-      margin-bottom: 32px;
+      font-size: 13px;
+      margin-bottom: 24px;
       color: #cbd5e1;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      gap: 8px;
+      line-height: 1.6;
     }
 
-    .cli-box code {
-      color: var(--code-cyan);
+    .cli-prompt {
+      color: var(--muted);
+    }
+
+    .cli-fail {
+      color: var(--code-red);
+    }
+
+    .cli-warn {
+      color: var(--code-amber);
+    }
+
+    .cli-ok {
+      color: var(--accent);
     }
 
     .grid-pillars {
@@ -295,6 +309,75 @@
       color: var(--muted);
     }
 
+    .sponsor-card {
+      background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.06), transparent 70%), var(--card-bg);
+      border: 1px solid #1e3a5f;
+      border-radius: 12px;
+      padding: 36px 32px;
+      margin-bottom: 56px;
+    }
+
+    .sponsor-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .sponsor-badge {
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--code-cyan);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+
+    .sponsor-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .sponsor-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      max-width: 860px;
+    }
+
+    .sponsor-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .feature-item {
+      background: rgba(10, 15, 26, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .feature-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 6px;
+    }
+
+    .feature-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
     .action-cta {
       background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(16, 185, 129, 0) 100%);
       border: 1px solid rgba(16, 185, 129, 0.2);
@@ -335,16 +418,29 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      cursor: pointer;
     }
 
     .btn-primary {
       background: var(--accent);
       color: #064e3b;
+      border: none;
     }
 
     .btn-primary:hover {
       background: #34d399;
       box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-cyan {
+      background: var(--code-cyan);
+      color: #0c4a6e;
+      border: none;
+    }
+
+    .btn-cyan:hover {
+      background: #7dd3fc;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
     }
 
     .btn-secondary {
@@ -371,9 +467,9 @@
     }
 
     @media (max-width: 640px) {
-      h1 { font-size: 28px; }
+      h1 { font-size: 26px; }
       .terminal-body { padding: 20px 16px; }
-      .cli-box { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .sponsor-card { padding: 24px 16px; }
     }
   </style>
 </head>
@@ -386,7 +482,8 @@
         <div class="brand-title">CTFarsi</div>
       </div>
       <nav class="nav-links">
-        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener">گیت‌هاب</a>
+        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener">سازمان گیت‌هاب</a>
+        <a href="#sponsorship">اسپانسرینگ و همکاری</a>
         <a href="#pillars">اصول رقابت</a>
         <a href="#categories">دسته‌بندی‌ها</a>
       </nav>
@@ -404,17 +501,50 @@
           <div></div>
         </div>
         <div class="terminal-body">
-          <div class="badge-status">مرحله آماده‌سازی و طراحی چالش‌ها</div>
+          <div class="badge-status">آماده‌سازی زیرساخت و طراحی سناریوها</div>
           <h1>رویداد فتح پرچم <span>توسط کامیونیتی</span>، برای کامیونیتی</h1>
           <p class="lead">
-            پایان دورانی که مسابقات با سرورهای ناپایدار داون می‌شدند یا جوایز شرکت‌کنندگان معلق می‌ماند.
-            CTFarsi یک بستر مستقل و بی‌واسطه برای ارزیابی مهارت فنی هکرهای جامعه فارسی زبان است.
+            پایان دورانی که مسابقات امنیت با سرورهای کرش‌کرده و خطای ۵۰۲ وسط مسابقه از دسترس خارج می‌شدند یا کمپین‌های تبلیغاتی پر سر و صدا جوایز بچه‌ها را می‌پیچاندند.
+            CTFarsi پاسخی فنی از دل کامیونیتی است: زیرساخت با تحمل بار واقعی، ارزیابی بدون رانت، و چالش‌های عمیق ضد هوش مصنوعی.
           </p>
 
           <div class="cli-box mono">
-            <div>$ curl -s https://ctfarsi.github.io/status.json | jq .</div>
-            <div>[STATUS: IN_DEVELOPMENT]</div>
+            <div><span class="cli-prompt">$</span> ./audit_competitions.sh --scope domestic</div>
+            <div class="cli-fail">[FAIL] blubank_ctf: Error 502 Bad Gateway / Infra collapsed on load</div>
+            <div class="cli-warn">[WARN] yektanet_campaign: Prize distribution stalled / Marketing promises unfulfilled</div>
+            <div class="cli-ok">[READY] ctfarsi: Resilient cluster ready, anti-AI design, verified community prizes</div>
           </div>
+        </div>
+      </div>
+
+      <div class="sponsor-card" id="sponsorship">
+        <div class="sponsor-header">
+          <div>
+            <div class="sponsor-badge mono">CALL FOR SPONSORS & TECH PARTNERS</div>
+            <h2 class="sponsor-title">اسپانسرینگ تعاملی: دیده شدن عمیق در دل چالش‌های فنی</h2>
+          </div>
+        </div>
+        <p class="sponsor-desc">
+          ما بنر تبلیغاتی بی‌خاصیت نمی‌فروشیم. پلتفرم‌ها، وب‌سایت‌ها، APIها و کانال‌های ارتباطی شرکت‌های حامی، مستقیما به عنوان بستر سناریوهای مهندسی معکوس، تست نفوذ وب و چالش‌های OSINT وارد مسابقه می‌شوند.
+          صدها متخصص فنی، برنامه‌نویس ارشد و پژوهشگر امنیت، برای حل مراحل ساعت‌ها تکنولوژی و برند شما را بررسی و تحلیل می‌کنند.
+        </p>
+        <div class="sponsor-features">
+          <div class="feature-item">
+            <div class="feature-title">درگیرسازی عمیق با محصول شما</div>
+            <div class="feature-text">پیاده‌سازی معماهای مهندسی روی ساب‌دامین‌ها، اپلیکیشن، پست‌ها یا APIهای اختصاصی سازمان جهت لمس واقعی توان فنی شما.</div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">تامین مستقیم جوایز نقدی و سخت‌افزاری</div>
+            <div class="feature-text">تمامی مبالغ حمایتی مستقیما و با شفافیت ۱۰۰ درصدی به جوایز برندگان برتر مسابقه و ایجاد هایپ رقابتی اختصاص می‌یابد.</div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">جذب بی‌واسطه تلنت‌های تاپ</div>
+            <div class="feature-text">شناسایی برترین هکرها و متخصصین زیرساخت که چالش‌های سیستم شما را فتح کرده‌اند و آماده جذب در تیم‌های مهندسی هستند.</div>
+          </div>
+        </div>
+        <div class="btn-group" style="justify-content: flex-start;">
+          <a href="https://github.com/CTFarsi/ctfarsi.github.io/issues" class="btn btn-cyan" target="_blank" rel="noopener">ثبت پیشنهاد اسپانسرینگ در گیت‌هاب</a>
+          <a href="https://github.com/CTFarsi" class="btn btn-secondary" target="_blank" rel="noopener">گفتگو با تیم توسعه CTFarsi</a>
         </div>
       </div>
 
