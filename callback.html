@@ -9,25 +9,18 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="container" style="text-align: center; padding-top: 100px;">
-    <div class="terminal-card" style="max-width: 500px; margin: 0 auto;">
-      <div class="terminal-bar">
-        <div class="terminal-dots">
-          <div class="terminal-dot red"></div>
-          <div class="terminal-dot yellow"></div>
-          <div class="terminal-dot green"></div>
-        </div>
-        <div class="terminal-title mono">GITHUB OAUTH CALLBACK</div>
+  <div class="site-container" style="text-align: center; padding-top: 100px;">
+    <div class="card" style="max-width: 520px; margin: 0 auto; padding: 40px 32px;">
+      <div style="margin-bottom: 24px;">
+        <img src="images/logo.svg" alt="CTFarsi Logo" style="width: 54px; height: 54px;">
       </div>
-      <div class="terminal-body" style="padding: 40px 24px;">
-        <div class="badge-status mono" id="cbStatus">AUTHENTICATING...</div>
-        <h2 style="font-size: 20px; margin: 16px 0;" id="cbTitle">در حال تایید هویت گیت‌هاب</h2>
-        <p style="color: var(--muted); font-size: 14px; margin-bottom: 24px;" id="cbDesc">
-          در حال برقراری ارتباط با سرویس امن گیت‌هاب و فعال‌سازی نشست کاربری...
-        </p>
-        <div id="cbAction">
-          <a href="index.html" class="btn btn-primary" style="display: none;" id="cbHomeBtn">بازگشت به صفحه اصلی</a>
-        </div>
+      <div class="badge-status mono" id="cbStatus" style="margin-bottom: 16px;">AUTHENTICATING...</div>
+      <h2 style="font-size: 22px; margin-bottom: 12px;" id="cbTitle">در حال تایید هویت گیت‌هاب</h2>
+      <p style="color: var(--fc-dim); font-size: 14px; line-height: 1.8; margin-bottom: 28px;" id="cbDesc">
+        در حال اتصال به سرور اعتبارسنجی گیت‌هاب و ایجاد نشست امن...
+      </p>
+      <div id="cbAction">
+        <a href="register.html" class="btn btn-primary" style="display: none;" id="cbRetryBtn">تلاش مجدد</a>
       </div>
     </div>
   </div>
@@ -35,47 +28,103 @@
   <script>
     (function() {
       var params = new URLSearchParams(window.location.search);
-      var user = params.get('user') || params.get('login') || 'm4tinbeigi-official';
       var code = params.get('code');
+      var user = params.get('user') || params.get('login');
+      var error = params.get('error_description') || params.get('error');
 
       var statusEl = document.getElementById('cbStatus');
       var titleEl = document.getElementById('cbTitle');
       var descEl = document.getElementById('cbDesc');
-      var btnEl = document.getElementById('cbHomeBtn');
+      var btnEl = document.getElementById('cbRetryBtn');
 
-      fetch('https://api.github.com/users/' + encodeURIComponent(user))
-        .then(function(res) {
-          if (!res.ok) throw new Error('خطا در دریافت هویت کاربر از گیت‌هاب');
-          return res.json();
-        })
-        .then(function(data) {
-          var userData = {
-            login: data.login,
-            name: data.name || data.login,
-            avatar_url: data.avatar_url,
-            bio: data.bio || '',
-            html_url: data.html_url,
-            public_repos: data.public_repos || 0,
-            followers: data.followers || 0
-          };
-          localStorage.setItem('ctfarsi_user', JSON.stringify(userData));
+      if (error) {
+        statusEl.textContent = 'ACCESS DENIED';
+        statusEl.style.color = '#ef4444';
+        titleEl.textContent = 'انصراف از ورود';
+        descEl.textContent = 'مجوز دسترسی توسط کاربر لغو شد: ' + error;
+        btnEl.style.display = 'inline-block';
+        return;
+      }
 
-          statusEl.textContent = 'AUTHENTICATED';
-          statusEl.style.color = '#10b981';
-          titleEl.textContent = 'خوش آمدید، @' + data.login;
-          descEl.textContent = 'ورود شما با موفقیت تایید شد. در حال انتقال به بخش ثبت‌نام...';
+      // If code is returned from GitHub OAuth flow
+      if (code) {
+        statusEl.textContent = 'EXCHANGING TOKEN...';
+        
+        fetch('https://mrhermes.ir/api/github-oauth.php?code=' + encodeURIComponent(code))
+          .then(function(res) {
+            return res.json().then(function(json) {
+              if (!res.ok) throw new Error(json.error || 'خطا در اعتبارسنجی کد دسترسی');
+              return json;
+            });
+          })
+          .then(function(data) {
+            if (!data.login) throw new Error('اطلاعات کاربری نامعتبر است');
+            
+            var userData = {
+              login: data.login,
+              name: data.name || data.login,
+              avatar_url: data.avatar_url || ('https://github.com/' + data.login + '.png'),
+              bio: data.bio || '',
+              html_url: data.html_url || ('https://github.com/' + data.login),
+              public_repos: data.public_repos || 0,
+              followers: data.followers || 0
+            };
 
-          setTimeout(function() {
-            window.location.href = 'register.html';
-          }, 1200);
-        })
-        .catch(function(err) {
-          statusEl.textContent = 'ERROR';
-          statusEl.style.color = '#ef4444';
-          titleEl.textContent = 'خطا در ورود خودکار';
-          descEl.textContent = err.message || 'امکان استعلام حساب کاربری فراهم نشد.';
-          btnEl.style.display = 'inline-block';
-        });
+            localStorage.setItem('ctfarsi_user', JSON.stringify(userData));
+
+            statusEl.textContent = 'AUTHENTICATED';
+            statusEl.style.color = '#10b981';
+            titleEl.textContent = 'خوش آمدید، @' + data.login;
+            descEl.textContent = 'هویت شما با موفقیت تایید شد. در حال هدایت به فرم ثبت‌نام تیم...';
+
+            setTimeout(function() {
+              window.location.href = 'register.html';
+            }, 1000);
+          })
+          .catch(function(err) {
+            statusEl.textContent = 'AUTH ERROR';
+            statusEl.style.color = '#ef4444';
+            titleEl.textContent = 'خطا در تایید هویت';
+            descEl.textContent = err.message || 'ارتباط با سرور اعتبارسنجی برقرار نشد.';
+            btnEl.style.display = 'inline-block';
+          });
+      } else if (user) {
+        // Direct profile fallback
+        fetch('https://api.github.com/users/' + encodeURIComponent(user))
+          .then(function(res) {
+            if (!res.ok) throw new Error('خطا در دریافت پروفایل کاربر');
+            return res.json();
+          })
+          .then(function(data) {
+            var userData = {
+              login: data.login,
+              name: data.name || data.login,
+              avatar_url: data.avatar_url,
+              bio: data.bio || '',
+              html_url: data.html_url,
+              public_repos: data.public_repos || 0,
+              followers: data.followers || 0
+            };
+            localStorage.setItem('ctfarsi_user', JSON.stringify(userData));
+            statusEl.textContent = 'AUTHENTICATED';
+            statusEl.style.color = '#10b981';
+            titleEl.textContent = 'خوش آمدید، @' + data.login;
+            descEl.textContent = 'در حال هدایت به فرم ثبت‌نام...';
+            setTimeout(function() {
+              window.location.href = 'register.html';
+            }, 1000);
+          })
+          .catch(function(err) {
+            statusEl.textContent = 'ERROR';
+            statusEl.style.color = '#ef4444';
+            titleEl.textContent = 'خطا در بازیابی حساب';
+            descEl.textContent = err.message;
+            btnEl.style.display = 'inline-block';
+          });
+      } else {
+        // No code or user
+        window.location.href = 'register.html';
+      }
     })();
   </script>
 </body>

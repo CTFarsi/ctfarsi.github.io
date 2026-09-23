@@ -64,17 +64,12 @@
     }
 
     // Direct OAuth Authorization flow - No manual ID prompt
-    var clientId = 'Ov23liDEMO_CTFARSI';
+    var clientId = 'Ov23liedvvabvU51v0gW';
     
-    // If real Client ID is configured, redirect to GitHub OAuth
-    if (clientId && !clientId.includes('DEMO')) {
-      var redirectUri = encodeURIComponent(window.location.origin + '/callback.html');
-      var oauthUrl = 'https://github.com/login/oauth/authorize?client_id=' + clientId + '&redirect_uri=' + redirectUri + '&scope=read:user';
-      window.location.href = oauthUrl;
-    } else {
-      // Seamless 1-Click login fallback until real Client ID is registered
-      window.location.href = 'callback.html?user=m4tinbeigi-official';
-    }
+    // Direct OAuth Authorization flow with real GitHub Client ID
+    var redirectUri = encodeURIComponent('https://ctfarsi.github.io/callback.html');
+    var oauthUrl = 'https://github.com/login/oauth/authorize?client_id=' + clientId + '&redirect_uri=' + redirectUri + '&scope=read:user';
+    window.location.href = oauthUrl;
   }
 
   function logoutGitHub() {
