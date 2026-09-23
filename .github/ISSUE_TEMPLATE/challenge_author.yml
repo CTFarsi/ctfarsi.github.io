@@ -1,0 +1,60 @@
+name: درخواست همکاری در طراحی چالش‌ها (Challenge Author)
+description: دعوت از شرکت‌های حامی، متخصصان امنیت و توسعه‌دهندگان جهت طراحی چالش‌های مسابقه
+title: "[CHALLENGE-AUTHOR]: "
+labels: ["challenge-author", "review-pending"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### فراخوان طراحی چالش‌های رویداد CTFarsi
+        طراحان تاییدشده به تیم هسته طراحی و اعتبارسنجی چالش‌ها ملحق خواهند شد.
+  - type: input
+    id: author_name
+    attributes:
+      label: نام و نام خانوادگی یا عنوان تیم / شرکت
+      placeholder: "e.g. آرین راد / تیم فنی ابرآروان"
+    validations:
+      required: true
+  - type: input
+    id: linkedin_url
+    attributes:
+      label: آدرس پروفایل لینکدین (الزامی)
+      placeholder: "https://www.linkedin.com/in/username"
+    validations:
+      required: true
+  - type: input
+    id: social_links
+    attributes:
+      label: شبکه‌های اجتماعی و لینک‌های فنی دیگر (توییتر، وبلاگ شخصی، گیتهاب)
+      placeholder: "https://x.com/username, https://github.com/username"
+    validations:
+      required: true
+  - type: dropdown
+    id: challenge_category
+    attributes:
+      label: دسته‌بندی چالش پیشنهادی
+      options:
+        - Web Exploitation & Logic Flaws
+        - Reverse Engineering & Obfuscation
+        - Cryptography & Protocol Analysis
+        - Binary Exploitation (Pwn)
+        - Forensics & OSINT
+        - AI & Agent Jailbreak / Prompt Injection
+        - Sponsor Platform / API Integration
+    validations:
+      required: true
+  - type: textarea
+    id: proposal_summary
+    attributes:
+      label: خلاصه ایده یا مکانیزم چالش پیشنهادی
+      description: لطفا از ارسال فلگ نهایی خودداری کنید؛ صرفا سناریو و سطح سختی را شرح دهید.
+      placeholder: شرح خلاصه سناریو، فناوری‌های مورد استفاده و رویکرد ضد هوش مصنوعی
+    validations:
+      required: true
+  - type: checkboxes
+    id: confidentiality_agreement
+    attributes:
+      label: تعهد محرمانگی
+      options:
+        - label: تعهد کامل به محرمانه نگه‌داشتن سناریوها و فلگ‌ها تا پایان مسابقه
+          required: true

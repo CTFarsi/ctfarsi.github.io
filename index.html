@@ -613,6 +613,42 @@
       color: #fff;
     }
 
+    .author-card {
+      background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.08), transparent 70%), var(--card-bg);
+      border: 1px solid #4a3410;
+      border-radius: 12px;
+      padding: 36px 32px;
+      margin-bottom: 56px;
+    }
+
+    .author-badge {
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+
+    .author-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .btn-amber {
+      background: #f59e0b;
+      color: #451a03;
+      border: none;
+    }
+
+    .btn-amber:hover {
+      background: #fbbf24;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+    }
+
     footer {
       border-top: 1px solid var(--border);
       padding-top: 24px;
@@ -628,7 +664,7 @@
     @media (max-width: 640px) {
       h1 { font-size: 26px; }
       .terminal-body { padding: 20px 16px; }
-      .sponsor-card, .register-card { padding: 24px 16px; }
+      .sponsor-card, .register-card, .author-card { padding: 24px 16px; }
       .reg-form { grid-template-columns: 1fr; }
     }
   </style>
@@ -643,6 +679,7 @@
       </div>
       <nav class="nav-links">
         <a href="#register">ثبت‌نام با گیت‌هاب</a>
+        <a href="#challenge-authors">طراحی چالش‌ها</a>
         <a href="#sponsorship">اسپانسرینگ و همکاری</a>
         <a href="#pillars">اصول رقابت</a>
         <a href="#categories">دسته‌بندی‌ها</a>
@@ -730,6 +767,62 @@
             <div class="roster-empty">در حال واکشی اطلاعات ثبت‌نام از گیت‌هاب...</div>
           </div>
         </div>
+      </div>
+
+      <!-- Call for Challenge Authors Section -->
+      <div class="author-card" id="challenge-authors">
+        <div class="register-header">
+          <div>
+            <div class="author-badge mono">CALL FOR CHALLENGE DESIGNERS & AUTHORS</div>
+            <h2 class="author-title">فراخوان همکاری در طراحی و ساخت چالش‌ها</h2>
+          </div>
+        </div>
+        <p class="register-desc">
+          از کلیه شرکت‌های حامی، تیم‌های فنی، محققان امنیت و توسعه‌دهندگان مستقل دعوت می‌شود جهت ساخت چالش‌های مسابقه به تیم هسته CTFarsi بپیوندند.
+          اگر پلتفرم یا فناوری خاصی دارید که تمایل دارید در یک سناریوی نفوذ استاندارد محک بخورد، یا معماهای فکری عمیق ضد هوش مصنوعی دارید، مشخصات فنی خود را ارسال نمایید.
+          پس از بررسی پروفایل لینکدین و شبکه‌های اجتماعی و تایید صلاحیت، دسترسی به محیط طراحی به شما اعطا خواهد شد.
+        </p>
+
+        <form class="reg-form" onsubmit="event.preventDefault(); submitChallengeAuthor();">
+          <div class="reg-input-group">
+            <label class="reg-label" for="authorName">نام و نام خانوادگی / عنوان تیم یا شرکت:</label>
+            <input class="reg-input" type="text" id="authorName" placeholder="مثال: مهرداد رحمانی / تیم فنی شرکت" required>
+          </div>
+
+          <div class="reg-input-group">
+            <label class="reg-label" for="authorCategory">دسته‌بندی چالش پیشنهادی:</label>
+            <select class="reg-select" id="authorCategory">
+              <option value="Web Exploitation & Logic Flaws">Web Exploitation & Logic Flaws</option>
+              <option value="Reverse Engineering & Obfuscation">Reverse Engineering & Obfuscation</option>
+              <option value="Cryptography & Protocol Flaws">Cryptography & Protocol Flaws</option>
+              <option value="Binary Exploitation (Pwn)">Binary Exploitation (Pwn)</option>
+              <option value="Forensics & OSINT">Forensics & OSINT</option>
+              <option value="AI & Agent Jailbreak">AI & Agent Jailbreak / Prompt Injection</option>
+              <option value="Sponsor Platform Integration">Sponsor Platform / API Integration (ویژه شرکت‌ها)</option>
+            </select>
+          </div>
+
+          <div class="reg-input-group">
+            <label class="reg-label" for="authorLinkedin">آدرس پروفایل لینکدین (الزامی):</label>
+            <input class="reg-input mono" type="url" id="authorLinkedin" placeholder="https://www.linkedin.com/in/username" required>
+          </div>
+
+          <div class="reg-input-group">
+            <label class="reg-label" for="authorSocial">شبکه‌های اجتماعی یا گیت‌هاب (الزامی):</label>
+            <input class="reg-input mono" type="text" id="authorSocial" placeholder="https://x.com/user, https://github.com/user" required>
+          </div>
+
+          <div class="reg-input-group full-width">
+            <label class="reg-label" for="authorIdea">خلاصه سناریو و سطح سختی (بدون افشای فلگ نهایی):</label>
+            <input class="reg-input" type="text" id="authorIdea" placeholder="توضیح کوتاه درباره فناوری‌ها، آسیب‌پذیری هدف و مکانیزم ضد هوش مصنوعی" required>
+          </div>
+
+          <div class="reg-input-group full-width">
+            <button type="submit" class="btn btn-amber" style="width: 100%; justify-content: center; padding: 14px;">
+              ارسال درخواست طراحی چالش با هویت گیت‌هاب
+            </button>
+          </div>
+        </form>
       </div>
 
       <div class="sponsor-card" id="sponsorship">
@@ -846,6 +939,30 @@
       );
 
       var url = 'https://github.com/CTFarsi/ctfarsi.github.io/issues/new?title=' + issueTitle + '&body=' + issueBody + '&labels=registration,participant';
+      window.open(url, '_blank');
+    }
+
+    function submitChallengeAuthor() {
+      var name = document.getElementById('authorName').value.trim();
+      var category = document.getElementById('authorCategory').value;
+      var linkedin = document.getElementById('authorLinkedin').value.trim();
+      var social = document.getElementById('authorSocial').value.trim();
+      var idea = document.getElementById('authorIdea').value.trim();
+
+      var issueTitle = encodeURIComponent('[CHALLENGE-AUTHOR]: ' + name);
+      var issueBody = encodeURIComponent(
+        '### درخواست عضویت در تیم طراحی چالش‌های CTFarsi\n\n' +
+        '- **طراح / تیم / شرکت:** ' + name + '\n' +
+        '- **شاخه تخصصی:** ' + category + '\n' +
+        '- **پروفایل لینکدین:** ' + linkedin + '\n' +
+        '- **شبکه‌های اجتماعی و گیت‌هاب:** ' + social + '\n' +
+        '- **خلاصه سناریو و ایده:** ' + idea + '\n\n' +
+        '#### تعهدات امنیتی و محرمانگی\n' +
+        '- [x] تعهد به حفظ محرمانگی کامل سناریو، سورس و فلگ تا لحظه اتمام رسمی مسابقه\n' +
+        '- [x] عدم افشای راهکار حل چالش به شرکت‌کنندگان یا تیم‌های ثالث'
+      );
+
+      var url = 'https://github.com/CTFarsi/ctfarsi.github.io/issues/new?title=' + issueTitle + '&body=' + issueBody + '&labels=challenge-author,review-pending';
       window.open(url, '_blank');
     }
 
