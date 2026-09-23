@@ -134,7 +134,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .brand-text {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 10px;
+  white-space: nowrap;
 }
 
 .brand-title {
@@ -154,7 +157,9 @@ h1, h2, h3, h4, h5, h6 {
 .nav {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 18px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .nav a {
@@ -165,6 +170,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: color 0.15s ease;
   padding: 6px 2px;
   position: relative;
+  white-space: nowrap;
 }
 
 .nav a:hover, .nav a.active {
