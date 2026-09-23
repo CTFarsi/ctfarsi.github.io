@@ -731,6 +731,79 @@
       .sponsor-card, .register-card, .author-card { padding: 24px 16px; }
       .reg-form { grid-template-columns: 1fr; }
     }
+
+    /* Auth Modal & Badges */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(7, 9, 14, 0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+    .modal-content {
+      background: #0d1117;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      max-width: 480px;
+      width: 100%;
+      padding: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .modal-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+    }
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 18px;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .modal-close:hover {
+      color: var(--text);
+    }
+    .auth-banner {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .auth-banner-user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .auth-banner-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--accent);
+    }
   </style>
 </head>
 <body>
@@ -748,7 +821,18 @@
         <a href="#rules">قوانین مسابقه</a>
         <a href="#pillars">اصول معماری</a>
         <a href="#categories">دسته‌بندی‌ها</a>
+        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener">کانال تلگرام</a>
         <a href="https://github.com/CTFarsi" target="_blank" rel="noopener">سازمان گیت‌هاب</a>
+        <div id="navAuthSlot" style="display: inline-flex; align-items: center; margin-right: 12px;">
+          <button id="navLoginBtn" type="button" class="btn btn-secondary mono" style="padding: 6px 12px; font-size: 13px;" onclick="openAuthModal()">
+            ورود با گیت‌هاب
+          </button>
+          <div id="navUserBadge" style="display: none; align-items: center; gap: 8px;">
+            <img id="navAvatarImg" src="" alt="avatar" style="width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--accent);">
+            <span id="navUsernameSpan" class="mono" style="color: var(--accent); font-size: 13px;"></span>
+            <button type="button" onclick="logoutGitHub()" class="btn btn-secondary mono" style="padding: 3px 8px; font-size: 11px; border-color: #ef4444; color: #ef4444;">خروج</button>
+          </div>
+        </div>
       </nav>
     </header>
 
@@ -792,13 +876,32 @@
           برای شرکت در رقابت نیازی به فرم‌های طولانی یا شماره موبایل نیست. اکانت گیت‌هاب شما شناسه یکتای فنی و رسمی شما در لیدربرد خواهد بود. اطلاعات تیم خود را وارد کنید و روی ثبت نهایی کلیک نمایید تا درخواست ثبت‌نام شما در مخزن گیت‌هاب صادر شود.
         </p>
 
+        <div id="authBannerBox" class="auth-banner" style="display: none;">
+          <div class="auth-banner-user">
+            <img id="regBannerAvatar" src="" class="auth-banner-avatar" alt="avatar">
+            <div>
+              <div style="font-weight: 700; color: var(--text);" id="regBannerName"></div>
+              <div class="mono" style="font-size: 12px; color: var(--accent);" id="regBannerHandle"></div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <span class="mono" style="font-size: 11px; background: rgba(16, 185, 129, 0.15); color: var(--accent); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--accent);">هویت گیت‌هاب تایید شده</span>
+            <button type="button" onclick="logoutGitHub()" class="btn btn-secondary mono" style="padding: 4px 8px; font-size: 11px;">تغییر اکانت</button>
+          </div>
+        </div>
+
         <form class="reg-form" onsubmit="event.preventDefault(); submitRegistration();">
+          <div class="reg-input-group">
+            <label class="reg-label" for="regGithubHandle">شناسه گیت‌هاب (GitHub Username):</label>
+            <input class="reg-input mono" type="text" id="regGithubHandle" placeholder="مثال: m4tinbeigi-official" required style="direction: ltr; text-align: left;">
+          </div>
+
           <div class="reg-input-group">
             <label class="reg-label" for="regTeamName">نام مستعار یا نام تیم (Handle / Team Name):</label>
             <input class="reg-input mono" type="text" id="regTeamName" placeholder="e.g. KernelPanic" required>
           </div>
 
-          <div class="reg-input-group">
+          <div class="reg-input-group full-width">
             <label class="reg-label" for="regTrack">شاخه تخصصی اصلی:</label>
             <select class="reg-select" id="regTrack">
               <option value="Web Exploitation">Web Exploitation</option>
@@ -1021,19 +1124,65 @@
 
     <footer>
       <div class="mono">CTFarsi Organization &bull; 2026</div>
+      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">کانال تلگرام (@CTFarsiIR)</a>
+        <a href="https://t.me/CTFarsiBot" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">ربات مسابقه (@CTFarsiBot)</a>
+        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">گیت‌هاب رسمی</a>
+      </div>
       <div>توسعه داده شده برای جامعه امنیت و متخصصین سایبری</div>
     </footer>
   </div>
 
+  <div id="authModal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title mono">GITHUB IDENTITY AUTHENTICATION</div>
+        <button type="button" class="modal-close" onclick="closeAuthModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color: var(--muted); font-size: 13px; margin-bottom: 16px; line-height: 1.6;">
+          ورود رسمی با هویت گیت‌هاب جهت شناسایی در لیدربرد و ثبت‌نام در چالش‌ها. شناسه کاربری گیت‌هاب خود را وارد کنید:
+        </p>
+        <div class="reg-input-group">
+          <label class="reg-label mono" for="authGithubInput">شناسه گیت‌هاب (GitHub Username)</label>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" id="authGithubInput" class="reg-input mono" placeholder="e.g. torvalds" style="direction: ltr; text-align: left;">
+            <button type="button" id="authSubmitBtn" class="btn btn-cyan" onclick="verifyAndLoginGitHub()" style="white-space: nowrap; padding: 0 16px;">
+              تایید و ورود
+            </button>
+          </div>
+          <div id="authErrorMsg" class="mono" style="color: var(--code-red); font-size: 12px; margin-top: 6px; display: none;"></div>
+        </div>
+
+        <div id="authProfilePreview" style="display: none; margin-top: 16px; padding: 12px; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid var(--border);">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <img id="modalAvatarImg" src="" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--accent);" alt="avatar">
+            <div>
+              <div id="modalUserTitle" style="font-weight: 700; color: var(--text);"></div>
+              <div id="modalUserBio" style="font-size: 12px; color: var(--muted);"></div>
+              <div id="modalUserStats" class="mono" style="font-size: 11px; color: var(--accent); margin-top: 4px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <span class="mono" style="font-size: 11px; color: var(--muted);">api.github.com/users</span>
+        <button type="button" class="btn btn-secondary" onclick="closeAuthModal()">انصراف</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     function submitRegistration() {
-      var team = document.getElementById('regTeamName').value.trim() || 'AnonymousHacker';
+      var handle = (document.getElementById('regGithubHandle').value.trim() || 'anonymous').replace(/^@/, '');
+      var team = document.getElementById('regTeamName').value.trim() || handle;
       var track = document.getElementById('regTrack').value;
       var bio = document.getElementById('regBio').value.trim();
 
-      var issueTitle = encodeURIComponent('[REGISTRATION]: ' + team);
+      var issueTitle = encodeURIComponent('[REGISTRATION]: @' + handle + ' (' + team + ')');
       var issueBody = encodeURIComponent(
         '### فرم ثبت‌نام مسابقه CTFarsi\n\n' +
+        '- **شناسه گیت‌هاب:** @' + handle + '\n' +
         '- **نام تیم / مستعار:** ' + team + '\n' +
         '- **شاخه تخصصی:** ' + track + '\n' +
         '- **توضیحات یا سوابق:** ' + (bio ? bio : 'ندارد') + '\n\n' +
@@ -1044,6 +1193,125 @@
 
       var url = 'https://github.com/CTFarsi/ctfarsi.github.io/issues/new?title=' + issueTitle + '&body=' + issueBody + '&labels=registration,participant';
       window.open(url, '_blank');
+    }
+
+    function openAuthModal() {
+      document.getElementById('authModal').style.display = 'flex';
+      setTimeout(function() {
+        var el = document.getElementById('authGithubInput');
+        if (el) el.focus();
+      }, 50);
+    }
+
+    function closeAuthModal() {
+      document.getElementById('authModal').style.display = 'none';
+      var err = document.getElementById('authErrorMsg');
+      if (err) err.style.display = 'none';
+    }
+
+    function verifyAndLoginGitHub() {
+      var input = document.getElementById('authGithubInput');
+      var username = input.value.trim().replace(/^@/, '');
+      var errorEl = document.getElementById('authErrorMsg');
+      var btn = document.getElementById('authSubmitBtn');
+      var preview = document.getElementById('authProfilePreview');
+
+      if (!username) {
+        errorEl.textContent = 'لطفا شناسه گیت‌هاب را وارد کنید.';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'در حال استعلام...';
+      errorEl.style.display = 'none';
+
+      fetch('https://api.github.com/users/' + encodeURIComponent(username))
+        .then(function(res) {
+          if (!res.ok) {
+            throw new Error('اکانت در گیت‌هاب یافت نشد (HTTP ' + res.status + ')');
+          }
+          return res.json();
+        })
+        .then(function(data) {
+          var userData = {
+            login: data.login,
+            name: data.name || data.login,
+            avatar_url: data.avatar_url,
+            bio: data.bio || '',
+            html_url: data.html_url,
+            public_repos: data.public_repos || 0,
+            followers: data.followers || 0
+          };
+          localStorage.setItem('ctfarsi_user', JSON.stringify(userData));
+
+          preview.style.display = 'block';
+          document.getElementById('modalAvatarImg').src = userData.avatar_url;
+          document.getElementById('modalUserTitle').textContent = userData.name + ' (@' + userData.login + ')';
+          document.getElementById('modalUserBio').textContent = userData.bio || 'توسعه‌دهنده فعال گیت‌هاب';
+          document.getElementById('modalUserStats').textContent = 'مخازن عمومی: ' + userData.public_repos + ' | دنبال‌کنندگان: ' + userData.followers;
+
+          setTimeout(function() {
+            closeAuthModal();
+            updateAuthUI();
+          }, 600);
+        })
+        .catch(function(err) {
+          errorEl.textContent = err.message || 'خطا در ارتباط با گیت‌هاب';
+          errorEl.style.display = 'block';
+        })
+        .finally(function() {
+          btn.disabled = false;
+          btn.textContent = 'تایید و ورود';
+        });
+    }
+
+    function logoutGitHub() {
+      localStorage.removeItem('ctfarsi_user');
+      updateAuthUI();
+    }
+
+    function updateAuthUI() {
+      var raw = localStorage.getItem('ctfarsi_user');
+      var loginBtn = document.getElementById('navLoginBtn');
+      var userBadge = document.getElementById('navUserBadge');
+      var authBanner = document.getElementById('authBannerBox');
+      var regHandleInput = document.getElementById('regGithubHandle');
+
+      if (raw) {
+        try {
+          var user = JSON.parse(raw);
+          if (loginBtn) loginBtn.style.display = 'none';
+          if (userBadge) {
+            userBadge.style.display = 'inline-flex';
+            document.getElementById('navAvatarImg').src = user.avatar_url;
+            document.getElementById('navUsernameSpan').textContent = '@' + user.login;
+          }
+          if (authBanner) {
+            authBanner.style.display = 'flex';
+            document.getElementById('regBannerAvatar').src = user.avatar_url;
+            document.getElementById('regBannerName').textContent = user.name || user.login;
+            document.getElementById('regBannerHandle').textContent = '@' + user.login;
+          }
+          if (regHandleInput) {
+            regHandleInput.value = user.login;
+            regHandleInput.readOnly = true;
+            regHandleInput.style.backgroundColor = 'rgba(16, 185, 129, 0.05)';
+            regHandleInput.style.borderColor = 'var(--accent)';
+          }
+        } catch(e) {
+          localStorage.removeItem('ctfarsi_user');
+        }
+      } else {
+        if (loginBtn) loginBtn.style.display = 'inline-block';
+        if (userBadge) userBadge.style.display = 'none';
+        if (authBanner) authBanner.style.display = 'none';
+        if (regHandleInput) {
+          regHandleInput.readOnly = false;
+          regHandleInput.style.backgroundColor = '';
+          regHandleInput.style.borderColor = '';
+        }
+      }
     }
 
     function submitChallengeAuthor() {
@@ -1179,6 +1447,17 @@
     document.addEventListener('DOMContentLoaded', function() {
       renderActiveAuthors();
       loadParticipants();
+      updateAuthUI();
+
+      var authInput = document.getElementById('authGithubInput');
+      if (authInput) {
+        authInput.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            verifyAndLoginGitHub();
+          }
+        });
+      }
 
       console.log(
         "%c" +
