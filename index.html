@@ -741,7 +741,8 @@
         <a href="#register">ثبت‌نام با گیت‌هاب</a>
         <a href="#challenge-authors">طراحی چالش‌ها</a>
         <a href="#sponsorship">اسپانسرینگ و همکاری</a>
-        <a href="#pillars">اصول رقابت</a>
+        <a href="#rules">قوانین مسابقه</a>
+        <a href="#pillars">اصول معماری</a>
         <a href="#categories">دسته‌بندی‌ها</a>
         <a href="https://github.com/CTFarsi" target="_blank" rel="noopener">سازمان گیت‌هاب</a>
       </nav>
@@ -877,10 +878,13 @@
             <input class="reg-input" type="text" id="authorIdea" placeholder="توضیح کوتاه درباره فناوری‌ها، آسیب‌پذیری هدف و مکانیزم ضد هوش مصنوعی" required>
           </div>
 
-          <div class="reg-input-group full-width">
-            <button type="submit" class="btn btn-amber" style="width: 100%; justify-content: center; padding: 14px;">
+          <div class="reg-input-group full-width" style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <button type="submit" class="btn btn-amber" style="flex: 1; min-width: 240px; justify-content: center; padding: 14px;">
               ارسال درخواست طراحی چالش با هویت گیت‌هاب
             </button>
+            <a href="https://github.com/CTFarsi/ctfarsi.github.io/blob/main/CHALLENGE_GUIDELINES.md" class="btn btn-secondary" target="_blank" rel="noopener" style="justify-content: center; padding: 14px;">
+              راهنمای استاندارد داکر چالش‌ها
+            </a>
           </div>
         </form>
 
@@ -920,7 +924,35 @@
         </div>
         <div class="btn-group" style="justify-content: flex-start;">
           <a href="https://github.com/CTFarsi/ctfarsi.github.io/issues" class="btn btn-cyan" target="_blank" rel="noopener">ثبت پیشنهاد اسپانسرینگ در گیت‌هاب</a>
+          <a href="https://github.com/CTFarsi/ctfarsi.github.io/blob/main/SPONSORSHIP.md" class="btn btn-secondary" target="_blank" rel="noopener">مطالعه مستندات اسپانسرینگ</a>
           <a href="https://github.com/CTFarsi" class="btn btn-secondary" target="_blank" rel="noopener">گفتگو با تیم توسعه CTFarsi</a>
+        </div>
+      </div>
+
+      <div class="section-title" id="rules">قوانین و چارچوب رقابت</div>
+      <div class="grid-pillars" style="margin-bottom: 56px;">
+        <div class="pillar-card">
+          <div class="pillar-tag mono">FLAG FORMAT</div>
+          <h3>فرمت پرچم‌ها</h3>
+          <p>تمام پرچم‌های معتبر مسابقه از الگوی <code class="mono" style="color:var(--accent);">CTFarsi{...}</code> پیروی می‌کنند. هر پرچمی خارج از این ساختار توسط سیستم داوری پذیرفته نخواهد شد.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-tag mono">TEAM FORMATION</div>
+          <h3>سایز و ترکیب تیم‌ها</h3>
+          <p>امکان شرکت به صورت انفرادی یا تیمی (حداکثر ۴ نفر) وجود دارد. تمام اعضا باید دارای شناسه معتبر و فعال در گیت‌هاب باشند.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-tag mono">DYNAMIC SCORING</div>
+          <h3>سیستم امتیازدهی پویا</h3>
+          <p>امتیاز چالش‌ها بر مبنای تعداد حل کاهش می‌یابد. تیم‌هایی که موفق به First Blood شوند حداکثر امتیاز اولیه سناریو را دریافت خواهند کرد.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-tag mono">ZERO TOLERANCE</div>
+          <h3>خطوط قرمز انضباطی</h3>
+          <p>هرگونه حمله محروم‌سازی از سرویس (DoS/DDoS)، بروت‌فورس روی درگاه‌های غیرمرتبط، یا اشتراک‌گذاری فلگ بین تیم‌ها موجب حذف دائمی خواهد شد.</p>
         </div>
       </div>
 
@@ -1143,6 +1175,43 @@
     document.addEventListener('DOMContentLoaded', function() {
       renderActiveAuthors();
       loadParticipants();
+
+      console.log(
+        "%c" +
+        "   ____ _____ _____              _\n" +
+        "  / ___|_   _|  ___|_ _ _ __ ___(_)\n" +
+        " | |     | | | |_ / _` | '__/ __| |\n" +
+        " | |___  | | |  _| (_| | |  \\__ \\ |\n" +
+        "  \\____| |_| |_|  \\__,_|_|  |___/_|\n\n" +
+        "Welcome to CTFarsi Core DevTools Console.\n" +
+        "Warmup Challenge #0: Decode the hidden payload below:\n" +
+        "Payload: Q1RGYXJzaXtjMG1tdW4xdHlfZjFyc3Rfbm9fNTAyX25vX2Y0azNfcHIxejM1fQ==\n\n" +
+        "Type `ctfarsi.help()` to interact.",
+        "color: #10b981; font-family: monospace; font-weight: bold; font-size: 13px;"
+      );
+
+      window.ctfarsi = {
+        help: function() {
+          console.log("[+] Available commands: ctfarsi.flag(solution), ctfarsi.status(), ctfarsi.rules()");
+        },
+        flag: function(val) {
+          if (!val) {
+            console.warn("[!] Pass your decoded flag: ctfarsi.flag('CTFarsi{...}')");
+            return;
+          }
+          if (val === 'CTFarsi{c0mmun1ty_f1rst_n0_502_n0_f4k3_pr1z3s}') {
+            console.log("%c[SUCCESS] Correct warm-up flag! You unlocked First Blood. Share your writeup or register in GitHub issues!", "color: #38bdf8; font-weight: bold; font-size: 14px;");
+          } else {
+            console.error("[-] Incorrect flag. Decode the base64 payload properly.");
+          }
+        },
+        status: function() {
+          console.log("[+] Infrastructure: Healthy | AI Defense: Active | Community: Ready");
+        },
+        rules: function() {
+          console.log("[+] Flag format: CTFarsi{...} | Max team: 4 | No DoS | Dynamic scoring");
+        }
+      };
     });
   </script>
 
