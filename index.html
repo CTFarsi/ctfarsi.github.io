@@ -3,177 +3,200 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CTFarsi &bull; نخستین رویداد جامعه‌محور فتح پرچم</title>
-  <meta name="description" content="نخستین رویداد جامعه‌محور فتح پرچم (CTF) با چالش‌های تخصصی، ضد هوش مصنوعی و زیرساخت پایدار">
-  <link rel="stylesheet" href="fonts/fonts.css">
+  <title>CTFarsi &bull; ریشه در خاک، استوار در کد</title>
+  <meta name="description" content="نخستین رویداد جامعه‌محور فتح پرچم با پیوند تاریخ چندهزارساله رمزنگاری و مهندسی ایران با فناوری‌های نوین، هوش مصنوعی و کسب‌وکارهای دیجیتال.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="brand-logo mono">CTF</div>
-        <a href="index.html" style="text-decoration: none; color: inherit;" class="brand-title">CTFarsi</a>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html" class="active">خانه</a>
-        <a href="register.html">ثبت‌نام و لیدربرد</a>
-        <a href="rules.html">قوانین و چارچوب</a>
-        <a href="authors.html">طراحان چالش‌ها</a>
-        <a href="sponsors.html">اسپانسرینگ</a>
-        <a href="https://t.me/CTFarsiIR" class="tg-nav-badge mono" target="_blank" rel="noopener">
-          کانال تلگرام: @CTFarsiIR
-        </a>
-        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener">سازمان گیت‌هاب</a>
-        <div id="navAuthSlot" style="display: inline-flex; align-items: center; margin-right: 12px;">
-          <button id="navLoginBtn" type="button" class="btn btn-secondary mono" style="padding: 6px 12px; font-size: 13px;" onclick="autoLoginGitHub()">
-            ورود خودکار با گیت‌هاب
-          </button>
-          <div id="navUserBadge" style="display: none; align-items: center; gap: 8px;">
-            <img id="navAvatarImg" src="" alt="avatar" style="width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--accent);">
-            <span id="navUsernameSpan" class="mono" style="color: var(--accent); font-size: 13px;"></span>
-            <button type="button" onclick="logoutGitHub()" class="btn btn-secondary mono" style="padding: 3px 8px; font-size: 11px; border-color: #ef4444; color: #ef4444;">خروج</button>
-          </div>
+  <header class="header">
+    <div class="site-container header-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-symbol">IR</div>
+        <div class="brand-text">
+          <span class="brand-title">CTFarsi</span>
+          <span class="brand-sub">ROOTED IN IRAN &bull; CYBER COMPETITION</span>
         </div>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html" class="active">صفحه اصلی</a>
+        <a href="register.html">ثبت‌نام و تیم‌ها</a>
+        <a href="rules.html">قوانین رقابت</a>
+        <a href="authors.html">معماران چالش‌ها</a>
+        <a href="sponsors.html">حامیان تجاری</a>
       </nav>
-    </header>
 
-    <main>
-      <!-- Hero Section -->
-      <section class="hero">
-        <div class="badge-status mono">COMMUNITY-DRIVEN SECURITY COMPETITION</div>
-        <h1>نخستین رویداد جامعه‌محور فتح پرچم با چالش‌های اصیل ضد هوش مصنوعی</h1>
-        <p class="lead">
-          پایان دادن به ۵۰۲‌های مداوم سرورها و حواشی جوایز شرکتی. CTFarsi یک رقابت کاملا مستقل، فنی و شفاف است که توسط متخصصین امنیت برای جامعه هکرهای اخلاقی ساخته شده است.
+      <div class="header-actions">
+        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener" class="tg-badge">
+          <span class="tg-badge-dot"></span>
+          <span>@CTFarsiIR</span>
+        </a>
+        <button id="authBtn" class="btn btn-primary btn-sm" onclick="autoLoginGitHub()">
+          ورود خودکار با گیت‌هاب
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="site-container">
+        <div class="heritage-pill">
+          <span>IRANIAN CIVILIZATION &bull; CRYPTOGRAPHY &bull; ARTIFICIAL INTELLIGENCE</span>
+        </div>
+        <h1 class="hero-title">
+          ریشه در خاک، استوار در کد:<br>
+          <span>پیوند کهن‌ترین رمزنگاری جهان با مرزهای هوش مصنوعی</span>
+        </h1>
+        <p class="hero-lead">
+          از نخستین کتیبه‌ها و شبکه چاپارخانه هخامنشی تا جبر خوارزمی و مهندسی نوین. امروز همان اندیشه در هسته پردازش اسنپ و تپسی، ترانک‌های sms.ir، بازارچه توسعه‌دهندگان ژاکت و نئوبانک‌های پویا جریان دارد. پایانی بر ۵۰۲‌های کلافه‌کننده سرورهای تجاری؛ یک آوردگاه شایسته‌سالار برای پاسداران حریم سایبری ایران.
         </p>
+        <div class="hero-cta-group">
+          <a href="register.html" class="btn btn-primary">ثبت‌نام رسمی تیم‌ها با گیت‌هاب</a>
+          <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener" class="btn btn-secondary">عضویت در کانال رسمی تلگرام</a>
+        </div>
+      </div>
+    </section>
 
-        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px;">
-          <a href="register.html" class="btn btn-primary">
-            ورود و ثبت‌نام در مسابقه
+    <!-- Iran Ecosystem Matrix -->
+    <section class="section">
+      <div class="site-container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">معماری چالش‌ها: از تمدن کهن تا استارتاپ‌های پیشرو</h2>
+            <p class="section-desc">سناریوهای مسابقه با الهام از تاریخ پرشکوه مهندسی ایران و مدل‌های واقعی چالش‌های امنیتی کسب‌وکارهای دیجیتال بومی طراحی شده‌اند.</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-num">ARCH-01 // MOBILITY</div>
+            <h3 class="card-title">چاپارخانه هخامنشی تا ناوگان اسنپ</h3>
+            <p class="card-body">
+              نخستین شبکه ترانزیت و پیام‌رسانی سریع تاریخ در تلفیق با سامانه اعزام بلادرنگ اسنپ؛ تحلیل حملات جعل موقعیت (GPS Spoofing)، مسیریابی بهینه و مقابله با بات‌های انحراف کرایه.
+            </p>
+            <span class="card-tag">SNAPP DISPATCH SECURITY</span>
+          </div>
+
+          <div class="card">
+            <div class="card-num">ARCH-02 // TRAFFIC & AI</div>
+            <h3 class="card-title">شاهراه ارتباطی تا هوش مصنوعی تپسی</h3>
+            <p class="card-body">
+              مدل‌های تخمین ترافیک و قیمت‌گذاری پویا؛ استحکام الگوریتم‌های یادگیری ماشین در برابر پرامپت‌های خصمانه و صیانت از داده‌های رفت‌وآمد میلیون‌ها کاربر ایرانی.
+            </p>
+            <span class="card-tag">TAPSI AI ENGINE</span>
+          </div>
+
+          <div class="card">
+            <div class="card-num">ARCH-03 // TELCO & AUTH</div>
+            <h3 class="card-title">دیوان نامه‌رسانی تا خطوط پیامکی sms.ir</h3>
+            <p class="card-body">
+              امنیت خطوط مخابراتی ۳۰۰۰ و اعتبارسنجی پیامک‌های دوعاملی (OTP)؛ محافظت در برابر جعل وب‌هوک و حملات توزیع‌شده به شاهراه‌های احراز هویت پیامکی کشور.
+            </p>
+            <span class="card-tag">SMS.IR OTP SHIELD</span>
+          </div>
+
+          <div class="card">
+            <div class="card-num">ARCH-04 // OPEN SOURCE & CMS</div>
+            <h3 class="card-title">بازارچه کهن بازرگانان تا اکوسیستم ژاکت</h3>
+            <p class="card-body">
+              امنیت افزونه‌ها و پوسته‌های بومی وب فارسی؛ کشف درهای پشتی (Backdoors)، حملات زنجیره تامین در وب‌سایت‌های ایرانی و ممیزی سیستم‌های فعال‌سازی لایسنس.
+            </p>
+            <span class="card-tag">ZHAKET SUPPLY CHAIN</span>
+          </div>
+
+          <div class="card">
+            <div class="card-num">ARCH-05 // CONCURRENCY & FINTECH</div>
+            <h3 class="card-title">ضرابخانه ملی تا لجر دیجیتال بلوبانک</h3>
+            <p class="card-body">
+              پایان دادن به خطاهای محاسباتی و شرایط رقابتی (Race Condition) در انتقال موجودی؛ تاب‌آوری ریزسرویس‌ها زیر بار ترافیک شدید و پایداری بدون وقفه.
+            </p>
+            <span class="card-tag">BLUBANK LEDGER RACE</span>
+          </div>
+
+          <div class="card">
+            <div class="card-num">ARCH-06 // MACHINE LEARNING</div>
+            <h3 class="card-title">محاسبات دیوانی تا رهگیری یکتانت</h3>
+            <p class="card-body">
+              مقابله با تقلب‌های تبلیغاتی (Ad Fraud) و امضای کوکی با توابع هش یک‌طرفه؛ ایزولاسیون کامل نشست‌ها و ناکام گذاشتن ایجنت‌های حل خودکار با طراحی سناریوهای عمیق.
+            </p>
+            <span class="card-tag">YEKTANET FRAUD ENGINE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Telegram Community Banner -->
+    <section class="site-container">
+      <div class="community-banner">
+        <div class="community-content">
+          <h3>هسته اطلاع‌رسانی و کارگروه تخصصی</h3>
+          <p>اطلاعیه‌های رسمی، زمان‌بندی انتشار چالش‌ها و نتایج در کانال عمومی اعلام می‌شود. همچنین طراحان سوالات به کارگروه محرمانه اختصاصی با تایید ادمین دعوت می‌گردند.</p>
+        </div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener" class="btn btn-primary">کانال تلگرام: @CTFarsiIR</a>
+          <a href="authors.html" class="btn btn-secondary">کارگروه طراحان سوال</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Portal Grid -->
+    <section class="section">
+      <div class="site-container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">دروازه‌های ورود به رویداد</h2>
+            <p class="section-desc">دسترسی سریع و بدون اتلاف وقت به مستندات و ثبت‌نام مسابقه.</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <a href="register.html" class="card portal-card">
+            <div class="portal-card-header">
+              <h3 class="portal-card-title">ثبت‌نام رسمی و فهرست تیم‌ها</h3>
+              <span class="mono">01 // REGISTRATION</span>
+            </div>
+            <p class="card-body">اتصال مستقیم حساب گیت‌هاب، دریافت نشان هویت و ثبت تیم در جدول همگام‌سازی‌شده رقابت.</p>
           </a>
-          <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener" class="btn btn-cyan">
-            عضویت در کانال رسمی تلگرام (@CTFarsiIR)
+
+          <a href="rules.html" class="card portal-card">
+            <div class="portal-card-header">
+              <h3 class="portal-card-title">قوانین و اخلاق رقابت</h3>
+              <span class="mono">02 // PROTOCOLS</span>
+            </div>
+            <p class="card-body">امتیازدهی داینامیک، فرمت پرچم‌ها، حریم اخلاقی هکرهای کلاه‌سفید و خطوط قرمز زیرساخت.</p>
+          </a>
+
+          <a href="authors.html" class="card portal-card">
+            <div class="portal-card-header">
+              <h3 class="portal-card-title">کارگروه طراحان و معماران</h3>
+              <span class="mono">03 // ARCHITECTS</span>
+            </div>
+            <p class="card-body">ارسال چالش‌های مبتنی بر استانداردهای ضد هوش مصنوعی، کانتینرسازی و لینک گروه خصوصی بررسی.</p>
+          </a>
+
+          <a href="sponsors.html" class="card portal-card">
+            <div class="portal-card-header">
+              <h3 class="portal-card-title">اسپانسرینگ و جوایز پایدار</h3>
+              <span class="mono">04 // SPONSORSHIP</span>
+            </div>
+            <p class="card-body">دعوت از غول‌های فناوری ایران جهت اعطای جوایز واقعی به نخبگان به دور از هیاهوهای پوچ.</p>
           </a>
         </div>
-      </section>
-
-      <!-- Telegram Channel Highlight Banner -->
-      <div class="sponsor-card" style="margin-bottom: 32px; border-color: #38bdf8; background: rgba(56, 189, 248, 0.04);">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-          <div>
-            <div class="mono" style="color: #38bdf8; font-size: 12px; font-weight: 700; margin-bottom: 4px;">OFFICIAL TELEGRAM HUB</div>
-            <div style="font-weight: 700; font-size: 16px; color: var(--text);">کانال رسمی تلگرام: @CTFarsiIR</div>
-            <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">
-              اطلاعیه‌های فوری، زمان‌بندی انتشار چالش‌ها، پشتیبانی فنی و گزارش پایداری سرورها در کانال رسمی تلگرام منتشر می‌شود.
-            </div>
-          </div>
-          <div style="display: flex; gap: 10px;">
-            <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener" class="btn btn-cyan mono" style="font-size: 13px;">
-              t.me/CTFarsiIR
-            </a>
-            <a href="https://t.me/CTFarsiBot" target="_blank" rel="noopener" class="btn btn-secondary mono" style="font-size: 13px;">
-              ربات: @CTFarsiBot
-            </a>
-          </div>
-        </div>
       </div>
+    </section>
+  </main>
 
-      <!-- Terminal Status Card -->
-      <div class="terminal-card" style="margin-bottom: 32px;">
-        <div class="terminal-bar">
-          <div class="terminal-dots">
-            <div class="terminal-dot red"></div>
-            <div class="terminal-dot yellow"></div>
-            <div class="terminal-dot green"></div>
-          </div>
-          <div class="terminal-title mono">ctfarsi-daemon --v1.0.0 (production-ready)</div>
-        </div>
-        <div class="terminal-body">
-          <div class="terminal-line"><span class="terminal-prompt">></span> <span class="terminal-command">ctfarsi check-infrastructure --all</span></div>
-          <div class="terminal-line"><span class="terminal-comment"># Testing reverse proxy, auto-scaling worker nodes, and challenge containers</span></div>
-          <div class="terminal-output"><span class="terminal-success">[PASS]</span> 502 Bad Gateway Protection: Active (No Blubank-style outage)</div>
-          <div class="terminal-output"><span class="terminal-success">[PASS]</span> Anti-AI Flag Engine: Enabled (Prompt injectors cannot bypass)</div>
-          <div class="terminal-output"><span class="terminal-success">[PASS]</span> Prize Verification: Transparent (No Yektanet-style prize ghosting)</div>
-          <div class="terminal-output"><span class="terminal-success">[PASS]</span> GitHub Identity Layer: 1-Click Auto OAuth Enabled</div>
-          <div class="terminal-output"><span class="terminal-success">[PASS]</span> Telegram Hub: Channel @CTFarsiIR connected with @CTFarsiBot admin</div>
-        </div>
+  <footer class="footer">
+    <div class="site-container footer-inner">
+      <div class="mono">CTFarsi &bull; Rooted in Iran &bull; 2026</div>
+      <div class="footer-links">
+        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener">کانال تلگرام</a>
+        <a href="https://t.me/CTFarsiBot" target="_blank" rel="noopener">ربات مسابقه</a>
+        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener">سازمان گیت‌هاب</a>
       </div>
-
-      <!-- Navigation Section Cards -->
-      <div class="nav-card-grid">
-        <a href="register.html" class="nav-card">
-          <div>
-            <div class="nav-card-title mono">REGISTRATION &amp; LEDGER</div>
-            <div class="nav-card-desc">
-              ورود سریع با هویت گیت‌هاب، ثبت‌نام تیم و مشاهده جدول آنلاین شرکت‌کنندگان تاییدشده.
-            </div>
-          </div>
-          <div class="nav-card-action">ورود به بخش ثبت‌نام &larr;</div>
-        </a>
-
-        <a href="rules.html" class="nav-card">
-          <div>
-            <div class="nav-card-title mono">RULES &amp; WARM-UP</div>
-            <div class="nav-card-desc">
-              چارچوب رسمی، سیستم امتیازدهی پویا، خطوط قرمز و حل چالش پنهان کنسول DevTools.
-            </div>
-          </div>
-          <div class="nav-card-action">مشاهده قوانین مسابقه &larr;</div>
-        </a>
-
-        <a href="authors.html" class="nav-card">
-          <div>
-            <div class="nav-card-title mono">CHALLENGE ARCHITECTS</div>
-            <div class="nav-card-desc">
-              معرفی معماران فعال سناریوها، استانداردهای داکر و ارسال پیشنهاد طراحی چالش جدید.
-            </div>
-          </div>
-          <div class="nav-card-action">تیم طراحی چالش‌ها &larr;</div>
-        </a>
-
-        <a href="sponsors.html" class="nav-card">
-          <div>
-            <div class="nav-card-title mono">SPONSORSHIPS &amp; PRIZES</div>
-            <div class="nav-card-desc">
-              پکیج‌های حمایت مالی، اهدای جوایز به برندگان، نقد مسابقات شرکتی و فرم همکاری.
-            </div>
-          </div>
-          <div class="nav-card-action">فرصت‌های اسپانسرینگ &larr;</div>
-        </a>
-      </div>
-
-      <!-- Core Pillars -->
-      <div class="grid-pillars" style="margin-top: 32px;">
-        <div class="pillar-card">
-          <div class="pillar-tag mono">ZERO OUTAGE</div>
-          <h3>پایداری کامل زیرساخت</h3>
-          <p>کانتینرهای ایزوله داکر، کلاستر پایدار و لودبالانسینگ واقعی بدون خطای ۵۰۲ یا قطعی در ساعات اوج رقابت.</p>
-        </div>
-
-        <div class="pillar-card">
-          <div class="pillar-tag mono">ANTI-AI CHALLENGES</div>
-          <h3>سناریوهای مقاوم در برابر AI</h3>
-          <p>طراحی چندلایه برای جلوگیری از حل چالش‌ها توسط ایجنت‌ها و ابزارهای تولید کد خودکار بدون درک عمیق مهندسی.</p>
-        </div>
-
-        <div class="pillar-card">
-          <div class="pillar-tag mono">TRANSPARENT PRIZES</div>
-          <h3>جوایز واقعی و شفاف</h3>
-          <p>حامیان مالی مشخص، اهدای شفاف جوایز نقدی به برترین تیم‌ها و تایید رایت‌آپ‌های معتبر بدون بهانه‌تراشی.</p>
-        </div>
-      </div>
-    </main>
-
-    <footer>
-      <div class="mono">CTFarsi Organization &bull; 2026</div>
-      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
-        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">کانال رسمی تلگرام: @CTFarsiIR</a>
-        <a href="https://t.me/CTFarsiBot" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">ربات مسابقه: @CTFarsiBot</a>
-        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">گیت‌هاب رسمی</a>
-      </div>
-      <div>توسعه داده شده برای جامعه امنیت و متخصصین سایبری</div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   <script src="js/app.js"></script>
 </body>

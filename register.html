@@ -4,125 +4,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CTFarsi &bull; ثبت‌نام رسمی و فهرست تیم‌ها</title>
-  <link rel="stylesheet" href="fonts/fonts.css">
+  <meta name="description" content="درگاه رسمی ثبت‌نام تیم‌ها و مشاهده فهرست شرکت‌کنندگان رویداد CTFarsi.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="brand-logo mono">CTF</div>
-        <a href="index.html" style="text-decoration: none; color: inherit;" class="brand-title">CTFarsi</a>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">خانه</a>
-        <a href="register.html" class="active">ثبت‌نام و لیدربرد</a>
-        <a href="rules.html">قوانین و چارچوب</a>
-        <a href="authors.html">طراحان چالش‌ها</a>
-        <a href="sponsors.html">اسپانسرینگ</a>
-        <a href="https://t.me/CTFarsiIR" class="tg-nav-badge mono" target="_blank" rel="noopener">
-          کانال تلگرام: @CTFarsiIR
-        </a>
-        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener">سازمان گیت‌هاب</a>
-        <div id="navAuthSlot" style="display: inline-flex; align-items: center; margin-right: 12px;">
-          <button id="navLoginBtn" type="button" class="btn btn-secondary mono" style="padding: 6px 12px; font-size: 13px;" onclick="autoLoginGitHub()">
-            ورود خودکار با گیت‌هاب
-          </button>
-          <div id="navUserBadge" style="display: none; align-items: center; gap: 8px;">
-            <img id="navAvatarImg" src="" alt="avatar" style="width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--accent);">
-            <span id="navUsernameSpan" class="mono" style="color: var(--accent); font-size: 13px;"></span>
-            <button type="button" onclick="logoutGitHub()" class="btn btn-secondary mono" style="padding: 3px 8px; font-size: 11px; border-color: #ef4444; color: #ef4444;">خروج</button>
-          </div>
+  <header class="header">
+    <div class="site-container header-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-symbol">IR</div>
+        <div class="brand-text">
+          <span class="brand-title">CTFarsi</span>
+          <span class="brand-sub">ROOTED IN IRAN &bull; CYBER COMPETITION</span>
         </div>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">صفحه اصلی</a>
+        <a href="register.html" class="active">ثبت‌نام و تیم‌ها</a>
+        <a href="rules.html">قوانین رقابت</a>
+        <a href="authors.html">معماران چالش‌ها</a>
+        <a href="sponsors.html">حامیان تجاری</a>
       </nav>
-    </header>
 
-    <main>
-      <div class="page-hero">
-        <div class="badge-status mono">PARTICIPANT REGISTRATION &amp; LEDGER</div>
-        <h1>ثبت‌نام رسمی با هویت گیت‌هاب</h1>
-        <p class="lead">
-          نیازی به فرم‌های طولانی، ایمیل‌های تبلیغاتی یا شماره موبایل نیست. اکانت گیت‌هاب شما شناسه یکتای فنی شما در مسابقه است. پس از ورود، اطلاعات تیم خود را تایید کنید تا سابقه تیم شما در مخزن رسمی گیت‌هاب ثبت و تایید شود.
-        </p>
+      <div class="header-actions">
+        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener" class="tg-badge">
+          <span class="tg-badge-dot"></span>
+          <span>@CTFarsiIR</span>
+        </a>
+        <button id="authBtn" class="btn btn-primary btn-sm" onclick="autoLoginGitHub()">
+          ورود خودکار با گیت‌هاب
+        </button>
       </div>
+    </div>
+  </header>
 
-      <!-- Registration Section -->
-      <div class="register-card" id="register" style="margin-bottom: 40px;">
-        <div class="register-header">
-          <div>
-            <div class="register-badge mono">1-CLICK IDENTITY VERIFIED</div>
-            <h2 class="register-title">صدور درخواست ثبت‌نام در مسابقه</h2>
-          </div>
-        </div>
+  <main class="site-container" style="padding-top: 48px; padding-bottom: 64px;">
+    <div style="margin-bottom: 40px;">
+      <div class="heritage-pill">
+        <span>REGISTRATION &bull; REPUTATION LEDGER &bull; GITHUB AUTH</span>
+      </div>
+      <h1 style="font-size: 38px; margin-bottom: 16px;">ثبت‌نام رسمی تیم‌ها و شرکت‌کنندگان</h1>
+      <p style="color: var(--fc-dim); font-size: 16px; max-width: 800px; line-height: 1.8;">
+        جهت حفظ شفافیت کامل، ثبت‌نام از طریق احراز هویت خودکار گیت‌هاب انجام شده و مشخصات تیم به صورت یک رکورد عمومی در مخزن رویداد ثبت می‌گردد.
+      </p>
+    </div>
 
-        <div id="authBannerBox" class="auth-banner" style="display: none;">
-          <div class="auth-banner-user">
-            <img id="regBannerAvatar" src="" class="auth-banner-avatar" alt="avatar">
+    <div class="grid-2">
+      <!-- Registration Form -->
+      <div class="card" style="padding: 32px;">
+        <h3 style="font-size: 20px; margin-bottom: 20px;">فرم ثبت تیم در مسابقه</h3>
+
+        <div id="authStatusCard" style="display: none; background: rgba(0, 191, 165, 0.08); border: 1px solid rgba(0, 191, 165, 0.25); padding: 16px; border-radius: var(--radius-sm); margin-bottom: 20px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <img id="userAvatar" src="" alt="avatar" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--turquoise);">
             <div>
-              <div style="font-weight: 700; color: var(--text);" id="regBannerName"></div>
-              <div class="mono" style="font-size: 12px; color: var(--accent);" id="regBannerHandle"></div>
+              <div id="userName" style="font-weight: 700; color: var(--fc);"></div>
+              <div id="userHandle" class="mono" style="color: var(--turquoise); font-size: 13px;"></div>
             </div>
           </div>
-          <div style="display: flex; gap: 8px; align-items: center;">
-            <span class="mono" style="font-size: 11px; background: rgba(16, 185, 129, 0.15); color: var(--accent); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--accent);">هویت گیت‌هاب متصل شد</span>
-            <button type="button" onclick="logoutGitHub()" class="btn btn-secondary mono" style="padding: 4px 8px; font-size: 11px;">تغییر اکانت</button>
-          </div>
         </div>
 
-        <form class="reg-form" onsubmit="event.preventDefault(); submitRegistration();">
-          <div class="reg-input-group">
-            <label class="reg-label" for="regTeamName">نام تیم یا نام مستعار رقابتی (Team Handle):</label>
-            <input class="reg-input mono" type="text" id="regTeamName" placeholder="مثال: KernelPanic" required>
+        <form onsubmit="event.preventDefault(); submitRegistration();">
+          <div class="input-group">
+            <label class="input-label">نام مستعار تیم یا شرکت‌کننده</label>
+            <input type="text" id="regTeamName" class="input-field" placeholder="مثال: Chapar Sec, Persepolis Hacker" required>
           </div>
 
-          <div class="reg-input-group">
-            <label class="reg-label" for="regTrack">شاخه تخصصی اصلی تیم:</label>
-            <select class="reg-select" id="regTrack">
-              <option value="Web Exploitation">Web Exploitation</option>
-              <option value="Reverse Engineering">Reverse Engineering</option>
-              <option value="Cryptography">Cryptography</option>
-              <option value="Binary Exploitation (Pwn)">Binary Exploitation (Pwn)</option>
-              <option value="Forensics & OSINT">Forensics & OSINT</option>
-              <option value="AI & Agent Hardening">AI & Agent Hardening</option>
-              <option value="Generalist / All Tracks">Generalist (همه شاخه‌ها)</option>
-            </select>
+          <div class="input-group">
+            <label class="input-label">شناسه تاییدشده گیت‌هاب کاپیتان</label>
+            <input type="text" id="regGithubHandle" class="input-field mono" placeholder="با زدن دکمه ورود خودکار تکمیل می‌شود" required>
           </div>
 
-          <div class="reg-input-group full-width">
-            <label class="reg-label" for="regBio">توضیحات کوتاه، اعضای تیم یا سوابق مسابقات (اختیاری):</label>
-            <input class="reg-input" type="text" id="regBio" placeholder="مثال: تیم ۲ نفره با سابقه حل چالش‌های وب و باینری">
+          <div class="input-group">
+            <label class="input-label">راه ارتباطی کاپیتان (شناسه تلگرام)</label>
+            <input type="text" id="regTelegram" class="input-field mono" placeholder="@your_telegram_id" required>
           </div>
 
-          <div class="reg-input-group full-width">
-            <button type="submit" class="btn btn-purple" style="width: 100%; justify-content: center; padding: 14px;">
-              تایید و صدور ایشیو ثبت‌نام با اکانت گیت‌هاب
-            </button>
+          <div class="input-group">
+            <label class="input-label">دسته‌بندی تخصصی یا تمرکز تیمی</label>
+            <input type="text" id="regFocus" class="input-field" placeholder="مثال: Web & Pwn, Crypto, Full Spectrum">
           </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">ثبت نهایی تیم در رویداد</button>
         </form>
       </div>
 
-      <!-- Live Participant Ledger -->
-      <div class="participant-box">
-        <div class="participant-header">
-          <div class="participant-title mono">REGISTERED TEAMS &amp; HACKERS LEDGER</div>
-          <div class="badge-status mono" id="participantCount" style="margin-bottom: 0;">در حال واکشی لیدربرد...</div>
+      <!-- Live Registered Teams Roster -->
+      <div class="card" style="padding: 32px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h3 style="font-size: 20px;">تیم‌های تاییدشده</h3>
+          <span id="participantsCount" class="mono" style="color: var(--saffron); font-size: 13px;">همگام‌سازی با گیت‌هاب...</span>
         </div>
-        <div class="participant-list" id="participantsList">
-          <div class="mono" style="color: var(--muted); font-size: 13px;">در حال اتصال به پایگاه اطلاعاتی گیت‌هاب...</div>
+        <div id="participantsList" style="display: flex; flex-direction: column; gap: 12px; max-height: 480px; overflow-y: auto;">
+          <div class="mono" style="color: var(--muted); font-size: 13px;">در حال فراخوانی فهرست تیم‌ها...</div>
         </div>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <footer>
-      <div class="mono">CTFarsi Organization &bull; 2026</div>
-      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
-        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">کانال رسمی تلگرام: @CTFarsiIR</a>
-        <a href="https://t.me/CTFarsiBot" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">ربات مسابقه: @CTFarsiBot</a>
-        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">گیت‌هاب رسمی</a>
+  <footer class="footer">
+    <div class="site-container footer-inner">
+      <div class="mono">CTFarsi &bull; Rooted in Iran &bull; 2026</div>
+      <div class="footer-links">
+        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener">کانال تلگرام</a>
+        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener">سازمان گیت‌هاب</a>
       </div>
-      <div>توسعه داده شده برای جامعه امنیت و متخصصین سایبری</div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   <script src="js/app.js"></script>
 </body>

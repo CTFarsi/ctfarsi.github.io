@@ -3,174 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CTFarsi &bull; اسپانسرینگ، جوایز و مشارکت تجاری</title>
-  <link rel="stylesheet" href="fonts/fonts.css">
+  <title>CTFarsi &bull; حامیان تجاری و ارتقای امنیت ملی</title>
+  <meta name="description" content="دعوت از برندها و کسب‌وکارهای پیشرو ایرانی برای حمایت مالی شفاف و اهدای جوایز ارزشمند به نخبگان امنیت سایبری کشور.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="brand-logo mono">CTF</div>
-        <a href="index.html" style="text-decoration: none; color: inherit;" class="brand-title">CTFarsi</a>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">خانه</a>
-        <a href="register.html">ثبت‌نام و لیدربرد</a>
-        <a href="rules.html">قوانین و چارچوب</a>
-        <a href="authors.html">طراحان چالش‌ها</a>
-        <a href="sponsors.html" class="active">اسپانسرینگ</a>
-        <a href="https://t.me/CTFarsiIR" class="tg-nav-badge mono" target="_blank" rel="noopener">
-          کانال تلگرام: @CTFarsiIR
-        </a>
-        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener">سازمان گیت‌هاب</a>
-        <div id="navAuthSlot" style="display: inline-flex; align-items: center; margin-right: 12px;">
-          <button id="navLoginBtn" type="button" class="btn btn-secondary mono" style="padding: 6px 12px; font-size: 13px;" onclick="autoLoginGitHub()">
-            ورود خودکار با گیت‌هاب
-          </button>
-          <div id="navUserBadge" style="display: none; align-items: center; gap: 8px;">
-            <img id="navAvatarImg" src="" alt="avatar" style="width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--accent);">
-            <span id="navUsernameSpan" class="mono" style="color: var(--accent); font-size: 13px;"></span>
-            <button type="button" onclick="logoutGitHub()" class="btn btn-secondary mono" style="padding: 3px 8px; font-size: 11px; border-color: #ef4444; color: #ef4444;">خروج</button>
-          </div>
+  <header class="header">
+    <div class="site-container header-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-symbol">IR</div>
+        <div class="brand-text">
+          <span class="brand-title">CTFarsi</span>
+          <span class="brand-sub">ROOTED IN IRAN &bull; CYBER COMPETITION</span>
         </div>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">صفحه اصلی</a>
+        <a href="register.html">ثبت‌نام و تیم‌ها</a>
+        <a href="rules.html">قوانین رقابت</a>
+        <a href="authors.html">معماران چالش‌ها</a>
+        <a href="sponsors.html" class="active">حامیان تجاری</a>
       </nav>
-    </header>
 
-    <main>
-      <div class="page-hero">
-        <div class="badge-status mono">PARTNERSHIPS, REAL PRIZES &amp; SPONSORSHIP</div>
-        <h1>اسپانسرینگ و مشارکت در بزرگ‌ترین رویداد کامیونیتی</h1>
-        <p class="lead">
-          ما رویدادی مستقل ساخته‌ایم تا پاسخ محکمی به مسابقات بی‌کیفیت و سرورهای داون تجاری باشد. شرکت‌های پیشرو دعوت می‌شوند تا به عنوان حامی مالی در کنار جامعه برترین هکرها و متخصصین امنیت ایران قرار گیرند.
+      <div class="header-actions">
+        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener" class="tg-badge">
+          <span class="tg-badge-dot"></span>
+          <span>@CTFarsiIR</span>
+        </a>
+        <button id="authBtn" class="btn btn-primary btn-sm" onclick="autoLoginGitHub()">
+          ورود خودکار با گیت‌هاب
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-container" style="padding-top: 48px; padding-bottom: 64px;">
+    <div style="margin-bottom: 40px;">
+      <div class="heritage-pill">
+        <span>SPONSORSHIP &bull; CORPORATE PARTNERSHIP &bull; COMMUNITY TRUST</span>
+      </div>
+      <h1 style="font-size: 38px; margin-bottom: 16px;">سرمایه‌گذاری روی پاسداران امنیت وب فارسی</h1>
+      <p style="color: var(--fc-dim); font-size: 16px; max-width: 800px; line-height: 1.8;">
+        ایران امروز میدان بزرگترین نوآوری‌ها در کسب‌وکارهایی نظیر اسنپ، تپسی، دیجی‌کالا، ژاکت، sms.ir و نئوبانک‌ها است. اما زیرساخت‌های پایدار نیازمند متخصصی است که چالش‌های نفوذ را در میدان واقعی تجربه کرده باشد. ما برندهای پیشرو را به حمایت از رقابتی مستقل، باثبات و به دور از خطاهای مکرر سرور دعوت می‌کنیم.
+      </p>
+    </div>
+
+    <div class="grid-3" style="margin-bottom: 48px;">
+      <div class="card">
+        <div class="card-num">TIER // GOLD</div>
+        <h3 class="card-title">حامی زرین (Gold Sponsor)</h3>
+        <p class="card-body">
+          طراحی چالش اختصاصی بر بستر معماری و محصول برند شما، درج لوگو در صدر رویداد، دسترسی مستقیم جهت مصاحبه و جذب نخبگان رتبه برتر، و اعطای جایزه اصلی به تیم‌های فاتح.
         </p>
+        <span class="card-tag">EXCLUSIVE CHALLENGE DESIGN</span>
       </div>
 
-      <!-- Why Independent CTFarsi Card -->
-      <div class="sponsor-card" style="margin-bottom: 40px; border-color: #ef4444; background: rgba(239, 68, 68, 0.03);">
-        <div class="sponsor-header">
-          <div>
-            <div class="sponsor-badge mono" style="color: #ef4444; border-color: #ef4444; background: rgba(239, 68, 68, 0.1);">WHY INDEPENDENT CTFARSI</div>
-            <h2 class="sponsor-title">درس‌های گذشته: از ۵۰۲ بلوبانک تا حواشی جوایز</h2>
-          </div>
-        </div>
-        <p class="sponsor-desc">
-          جامعه امنیت سایبری بارها شاهد مسابقاتی با بودجه‌های کلان اما خروجی فاجعه‌بار بوده است: سرورهایی که با نخستین هجوم شرکت‌کنندگان ۵۰۲ دادند و ساعت‌ها از دسترس خارج شدند، یا رویدادهایی که جوایز وعده‌داده‌شده به برندگان را محقق نکردند. CTFarsi با زیرساخت غیرمتمرکز، چالش‌های اصیل ضد AI و شفافیت مطلق در جوایز، استانداردی نوین برای مسابقات امنیت بنا نهاده است.
+      <div class="card">
+        <div class="card-num">TIER // SILVER</div>
+        <h3 class="card-title">حامی سیمین (Silver Sponsor)</h3>
+        <p class="card-body">
+          درج نام تجاری در پرتال رسمی و کانال تلگرام، تقدیر رسمی در بیانیه‌ها و اهدای نشان اختصاصی حامی امنیت وب فارسی به همراه معرفی فرصت‌های شغلی فنی شرکت.
         </p>
+        <span class="card-tag">ECOSYSTEM BRANDING</span>
       </div>
 
-      <!-- Sponsorship Packages -->
-      <div class="grid-pillars" style="margin-bottom: 40px;">
-        <div class="pillar-card">
-          <div class="pillar-tag mono">TIER 1 &bull; GOLD</div>
-          <h3>اسپانسر طلایی (Gold Sponsor)</h3>
-          <p>نام‌گذاری اختصاصی در لیدربرد، درج لوگو در هدر سایت، طراحی سناریوی اختصاصی در چالش‌های وب یا مهندسی اجتماعی با الهام از دامین اسپانسر، و اهدای مستقیم جوایز برتر.</p>
-        </div>
-
-        <div class="pillar-card">
-          <div class="pillar-tag mono">TIER 2 &bull; SILVER</div>
-          <h3>اسپانسر نقره‌ای (Silver Sponsor)</h3>
-          <p>لوگو و معرفی برند در کانال تلگرام، مستندات رسمی گیت‌هاب و رایت‌آپ‌های مسابقه، به همراه امکان جذب نیروی کارآموزی و استخدام از میان برترین تیم‌های حل‌کننده.</p>
-        </div>
-
-        <div class="pillar-card">
-          <div class="pillar-tag mono">INFRASTRUCTURE</div>
-          <h3>حامی زیرساخت ابری (Cloud Partner)</h3>
-          <p>تامین سرورهای اجرای کانتینرها، ایزولاسیون پردازشی و پهنای باند مسابقه با معرفی کامل به عنوان شریک ابری رسمی رویداد در تمامی بنرها و صفحات.</p>
-        </div>
-      </div>
-
-      <!-- Sponsor Form -->
-      <div class="sponsor-card">
-        <div class="sponsor-header">
-          <div>
-            <div class="sponsor-badge mono">PARTNERSHIP INQUIRY</div>
-            <h2 class="sponsor-title">ارسال پیشنهاد اسپانسرینگ یا تامین جوایز</h2>
-          </div>
-          <a href="https://github.com/CTFarsi/ctfarsi.github.io/blob/main/SPONSORSHIP.md" target="_blank" rel="noopener" class="btn btn-cyan">
-            مشاهده سند کامل SPONSORSHIP.md
-          </a>
-        </div>
-        <p class="sponsor-desc">
-          برای هماهنگی بسته‌های حمایت مالی، اهدای جوایز به برندگان یا مطرح شدن سازمان شما در طراحی سناریوهای خلاقانه مسابقه، فرم زیر را تکمیل کنید:
+      <div class="card">
+        <div class="card-num">TIER // INFRASTRUCTURE</div>
+        <h3 class="card-title">حامی زیرساخت ابری (Cloud Partner)</h3>
+        <p class="card-body">
+          تامین سرورها و پایداری کانتینرها بدون قطعی ۵۰۲؛ میزبانی پرچم‌ها روی لبه‌های توزیع‌شده با تضمین دسترس‌پذیری کامل در سراسر کشور.
         </p>
-
-        <form class="sponsor-form" onsubmit="event.preventDefault(); submitSponsorProposal();">
-          <div class="reg-input-group">
-            <label class="reg-label" for="sponsorCompany">نام شرکت، برند یا نهاد حامی:</label>
-            <input class="reg-input" type="text" id="sponsorCompany" placeholder="مثال: شرکت ابری / استارتاپ امنیت" required>
-          </div>
-
-          <div class="reg-input-group">
-            <label class="reg-label" for="sponsorTier">سطح حمایت مورد نظر:</label>
-            <select class="reg-select" id="sponsorTier">
-              <option value="Gold Sponsor">اسپانسر طلایی (تامین جوایز رتبه‌های برتر)</option>
-              <option value="Silver Sponsor">اسپانسر نقره‌ای (حمایت مالی و جذب نیرو)</option>
-              <option value="Infrastructure Partner">حامی زیرساخت ابری و سرورها</option>
-              <option value="Community Swag & Merchandise">تامین هدایای فیزیکی و مرچندایز</option>
-            </select>
-          </div>
-
-          <div class="reg-input-group">
-            <label class="reg-label" for="sponsorContactName">نام نماینده یا مسئول ارتباطات:</label>
-            <input class="reg-input" type="text" id="sponsorContactName" placeholder="مثال: علیرضا محمدی" required>
-          </div>
-
-          <div class="reg-input-group">
-            <label class="reg-label" for="sponsorTelegram">آیدی تلگرام یا شماره مستقیم تماس:</label>
-            <input class="reg-input mono" type="text" id="sponsorTelegram" placeholder="@username یا شماره تماس" required>
-          </div>
-
-          <div class="reg-input-group full-width">
-            <label class="reg-label" for="sponsorOffer">توضیحات و پیشنهاد همکاری / مبالغ جوایز:</label>
-            <textarea class="reg-textarea" id="sponsorOffer" placeholder="توضیح دهید برند شما مایل به چه نوع مشارکت، تامین جوایز نقدی یا سناریوی بازاریابی در مسابقه است..." required></textarea>
-          </div>
-
-          <div class="reg-input-group full-width">
-            <button type="submit" class="btn btn-cyan" style="width: 100%; justify-content: center; padding: 14px;">
-              ارسال درخواست اسپانسرینگ به دبیرخانه CTFarsi
-            </button>
-          </div>
-        </form>
+        <span class="card-tag">HIGH AVAILABILITY SERVERS</span>
       </div>
-    </main>
+    </div>
 
-    <footer>
-      <div class="mono">CTFarsi Organization &bull; 2026</div>
-      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
-        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">کانال رسمی تلگرام: @CTFarsiIR</a>
-        <a href="https://t.me/CTFarsiBot" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">ربات مسابقه: @CTFarsiBot</a>
-        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">گیت‌هاب رسمی</a>
+    <!-- Contact & Application Form -->
+    <div class="card" style="max-width: 700px; margin: 0 auto; padding: 36px;">
+      <h3 style="font-size: 22px; margin-bottom: 12px;">درخواست حمایت تجاری یا همکاری در طراحی چالش</h3>
+      <p style="color: var(--fc-dim); font-size: 14px; margin-bottom: 24px;">
+        مدیران امنیت و روابط عمومی شرکت‌ها می‌توانند درخواست خود را ثبت نموده یا مستقیما از طریق پیام به آیدی تلگرام هماهنگ فرمایند.
+      </p>
+
+      <form onsubmit="event.preventDefault(); submitSponsorForm();">
+        <div class="input-group">
+          <label class="input-label">نام برند یا شرکت</label>
+          <input type="text" id="spCompany" class="input-field" placeholder="مثال: اسنپ، تپسی، ژاکت، sms.ir" required>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">نام نماینده و سمت فنی</label>
+          <input type="text" id="spContact" class="input-field" placeholder="نام و عنوان شغلی" required>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">راه ارتباطی (شناسه تلگرام یا ایمیل رسمی)</label>
+          <input type="text" id="spChannel" class="input-field mono" placeholder="@telegram_handle یا info@company.ir" required>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">نوع همکاری یا پیشنهاد جایزه</label>
+          <textarea id="spDesc" class="input-field" rows="4" placeholder="توضیح کوتاه درباره نحوه حمایت یا زمینه مورد نظر جهت طراحی چالش امنیتی"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">ثبت درخواست همکاری تجاری</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="site-container footer-inner">
+      <div class="mono">CTFarsi &bull; Rooted in Iran &bull; 2026</div>
+      <div class="footer-links">
+        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener">کانال تلگرام</a>
+        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener">سازمان گیت‌هاب</a>
       </div>
-      <div>توسعه داده شده برای جامعه امنیت و متخصصین سایبری</div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   <script src="js/app.js"></script>
-  <script>
-    function submitSponsorProposal() {
-      var company = document.getElementById('sponsorCompany').value.trim();
-      var tier = document.getElementById('sponsorTier').value;
-      var contact = document.getElementById('sponsorContactName').value.trim();
-      var tg = document.getElementById('sponsorTelegram').value.trim();
-      var offer = document.getElementById('sponsorOffer').value.trim();
-
-      var issueTitle = encodeURIComponent('[SPONSOR-INQUIRY]: ' + company + ' (' + tier + ')');
-      var issueBody = encodeURIComponent(
-        '### فرم درخواست اسپانسرینگ مسابقه CTFarsi\n\n' +
-        '- **نام شرکت / برند:** ' + company + '\n' +
-        '- **سطح همکاری پیشنهادی:** ' + tier + '\n' +
-        '- **نام نماینده:** ' + contact + '\n' +
-        '- **راه ارتباطی (تلگرام / تماس):** ' + tg + '\n\n' +
-        '#### جزئیات پیشنهاد و سناریوهای مد نظر\n' +
-        offer + '\n\n' +
-        '#### توافق اولیه\n' +
-        '- [x] آمادگی جهت عقد تفاهم‌نامه رسمی و شفافیت در اهدای جوایز به برندگان رویداد'
-      );
-
-      var url = 'https://github.com/CTFarsi/ctfarsi.github.io/issues/new?title=' + issueTitle + '&body=' + issueBody + '&labels=sponsorship,inquiry';
-      window.open(url, '_blank');
-    }
-  </script>
 </body>
 </html>

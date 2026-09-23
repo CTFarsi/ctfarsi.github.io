@@ -3,160 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CTFarsi &bull; طراحان چالش‌ها و معماران سناریو</title>
-  <link rel="stylesheet" href="fonts/fonts.css">
+  <title>CTFarsi &bull; کارگروه طراحان و معماران چالش‌ها</title>
+  <meta name="description" content="کارگروه محرمانه و تخصصی طراحان، معماران سناریوها و بررسی‌کنندگان چالش‌های رویداد CTFarsi.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="brand-logo mono">CTF</div>
-        <a href="index.html" style="text-decoration: none; color: inherit;" class="brand-title">CTFarsi</a>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">خانه</a>
-        <a href="register.html">ثبت‌نام و لیدربرد</a>
-        <a href="rules.html">قوانین و چارچوب</a>
-        <a href="authors.html" class="active">طراحان چالش‌ها</a>
-        <a href="sponsors.html">اسپانسرینگ</a>
-        <a href="https://t.me/CTFarsiIR" class="tg-nav-badge mono" target="_blank" rel="noopener">
-          کانال تلگرام: @CTFarsiIR
-        </a>
-        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener">سازمان گیت‌هاب</a>
-        <div id="navAuthSlot" style="display: inline-flex; align-items: center; margin-right: 12px;">
-          <button id="navLoginBtn" type="button" class="btn btn-secondary mono" style="padding: 6px 12px; font-size: 13px;" onclick="autoLoginGitHub()">
-            ورود خودکار با گیت‌هاب
-          </button>
-          <div id="navUserBadge" style="display: none; align-items: center; gap: 8px;">
-            <img id="navAvatarImg" src="" alt="avatar" style="width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--accent);">
-            <span id="navUsernameSpan" class="mono" style="color: var(--accent); font-size: 13px;"></span>
-            <button type="button" onclick="logoutGitHub()" class="btn btn-secondary mono" style="padding: 3px 8px; font-size: 11px; border-color: #ef4444; color: #ef4444;">خروج</button>
-          </div>
+  <header class="header">
+    <div class="site-container header-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-symbol">IR</div>
+        <div class="brand-text">
+          <span class="brand-title">CTFarsi</span>
+          <span class="brand-sub">ROOTED IN IRAN &bull; CYBER COMPETITION</span>
         </div>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">صفحه اصلی</a>
+        <a href="register.html">ثبت‌نام و تیم‌ها</a>
+        <a href="rules.html">قوانین رقابت</a>
+        <a href="authors.html" class="active">معماران چالش‌ها</a>
+        <a href="sponsors.html">حامیان تجاری</a>
       </nav>
-    </header>
 
-    <main>
-      <div class="page-hero">
-        <div class="badge-status mono">CHALLENGE ARCHITECTS &amp; DESIGNERS</div>
-        <h1>طراحان فعال و استانداردهای طراحی چالش</h1>
-        <p class="lead">
-          چالش‌های CTFarsi توسط متخصصین فعال حوزه امنیت، المپیاد کامپیوتر و معماران نرم‌افزار طراحی می‌شوند. تمامی سناریوها پیش از انتشار تست نفوذ و ارزیابی مقاومت در برابر ابزارهای خودکار را طی می‌کنند.
-        </p>
+      <div class="header-actions">
+        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener" class="tg-badge">
+          <span class="tg-badge-dot"></span>
+          <span>@CTFarsiIR</span>
+        </a>
+        <button id="authBtn" class="btn btn-primary btn-sm" onclick="autoLoginGitHub()">
+          ورود خودکار با گیت‌هاب
+        </button>
       </div>
+    </div>
+  </header>
 
-      <!-- Active Authors Section -->
-      <div class="author-card" style="margin-bottom: 40px;">
-        <div class="author-header">
-          <div>
-            <div class="author-badge mono">CORE DESIGN TEAM</div>
-            <h2 class="author-title">فهرست معماران و طراحان فعال چالش‌ها</h2>
-          </div>
-        </div>
-        <p class="author-desc">
-          اعضای زیر در حال حاضر مسئولیت تدوین، اعتبارسنجی و تست استحکام سناریوهای رقابت را در سازمان گیت‌هاب بر عهده دارند:
-        </p>
-        <div class="authors-grid" id="authorsGrid"></div>
+  <main class="site-container" style="padding-top: 48px; padding-bottom: 64px;">
+    <div style="margin-bottom: 40px;">
+      <div class="heritage-pill">
+        <span>AUTHORS &bull; BLUEPRINT ARCHITECTS &bull; ANTI-AI RIGIDITY</span>
       </div>
+      <h1 style="font-size: 38px; margin-bottom: 16px;">کارگروه طراحان سناریو و معماران چالش‌ها</h1>
+      <p style="color: var(--fc-dim); font-size: 16px; max-width: 800px; line-height: 1.8;">
+        پاسداری از دانش کهن و ارتقای امنیت سایبری ملی نیازمند سناریوهایی اصیل، عمیق و مقاوم در برابر حل تصادفی یا استفاده خام از ابزارهای هوش مصنوعی است. طراحان برگزیده برای بررسی سناریوها به گروه اختصاصی دعوت می‌شوند.
+      </p>
+    </div>
 
-      <!-- Technical Authoring Guidelines Card -->
-      <div class="sponsor-card" style="margin-bottom: 40px; border-color: var(--code-amber);">
-        <div class="sponsor-header">
-          <div>
-            <div class="sponsor-badge mono" style="color: var(--code-amber); border-color: var(--code-amber); background: rgba(245, 158, 11, 0.1);">DOCKER &amp; ANTI-AI SPECS</div>
-            <h2 class="sponsor-title">راهنمای فنی و اصول ایزولاسیون چالش‌ها</h2>
-          </div>
-          <a href="https://github.com/CTFarsi/ctfarsi.github.io/blob/main/CHALLENGE_GUIDELINES.md" target="_blank" rel="noopener" class="btn btn-amber">
-            مشاهده سند کامل CHALLENGE_GUIDELINES.md
-          </a>
-        </div>
-        <p class="sponsor-desc">
-          برای حفظ پایداری زیرساخت و تضمین عدالت رقابت، تمامی چالش‌های ارسالی باید با استاندارد مشخص شده در مخزن سازمان مطابقت داشته باشند:
-        </p>
-        <div class="grid-pillars" style="margin-top: 16px;">
-          <div class="pillar-card">
-            <div class="pillar-tag mono">MEMORY LIMIT</div>
-            <h3>سقف حافظه ۲۵۶ مگابایت</h3>
-            <p>هر کانتینر سرویس باید حداکثر با ۲۵۶ مگابایت رم و بدون نشت حافظه اجرا شود.</p>
-          </div>
-          <div class="pillar-card">
-            <div class="pillar-tag mono">NON-ROOT EXECUTION</div>
-            <h3>کاربر غیر روت ایزوله</h3>
-            <p>سرویس‌ها درون کانتینر باید تحت کاربری با کمترین سطح دسترسی (Least Privilege) اجرا شوند.</p>
-          </div>
-          <div class="pillar-card">
-            <div class="pillar-tag mono">AUTOMATED HEALTHCHECK</div>
-            <h3>اسکریپت هلث‌چک دوره‌ای</h3>
-            <p>کانتینر چالش باید دارای هلث‌چک داخلی باشد تا در صورت کرش، سیستم خودکار آن را ریستارت کند.</p>
-          </div>
+    <!-- Private Group Banner -->
+    <div class="community-banner" style="border-color: rgba(212, 163, 115, 0.3); background: linear-gradient(135deg, #181d24 0%, #1c222b 100%);">
+      <div class="community-content">
+        <div class="mono" style="color: var(--saffron); font-size: 12px; margin-bottom: 6px;">PRIVATE COMMUNITY // ADMIN APPROVAL REQUIRED</div>
+        <h3 style="color: var(--fc);">سوپرگروه محرمانه طراحان چالش‌های CTFarsi</h3>
+        <p style="color: var(--fc-dim);">عضویت در این گروه منحصرا با تایید مستقیم ادمین‌های ارشد انجام می‌شود تا طرح‌ها، آسیب‌پذیری‌ها و کدهای اکسپلویت تا پیش از لحظه شروع مسابقه کاملا محرمانه باقی بمانند.</p>
+      </div>
+      <div>
+        <a href="https://t.me/+8LrqFDIBbORkYmI8" target="_blank" rel="noopener" class="btn btn-primary">
+          ارسال درخواست عضویت در گروه طراحان
+        </a>
+      </div>
+    </div>
+
+    <!-- Active Authors -->
+    <section class="section" style="padding: 32px 0;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">طراحان فعال و معماران سناریوها</h2>
+          <p class="section-desc">متخصصینی که در حال معماری و اعتبارسنجی چالش‌ها در مخزن خصوصی هستند.</p>
         </div>
       </div>
+      <div id="authorsGrid" class="grid-3"></div>
+    </section>
 
-      <!-- Author Application Form -->
-      <div class="author-card">
-        <div class="author-header">
-          <div>
-            <div class="author-badge mono">CONTRIBUTE AS AUTHOR</div>
-            <h2 class="author-title">همکاری در طراحی سناریو و چالش جدید</h2>
-          </div>
+    <!-- Challenge Authoring Standards -->
+    <section class="section" style="padding: 32px 0;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">اصول الزامی طراحی سوال در CTFarsi</h2>
+          <p class="section-desc">چالش‌های ارسالی باید ۴ اصل بنیادین زیر را پاس کنند:</p>
         </div>
-        <p class="author-desc">
-          اگر در حوزه‌های وب، مهندسی معکوس، رمزنگاری، اکسپلویت باینری یا هوش مصنوعی ایده چالشی نوآورانه و ضد AI دارید، مشخصات خود را ثبت کنید:
-        </p>
-
-        <form class="author-form" onsubmit="event.preventDefault(); submitChallengeAuthor();">
-          <div class="reg-input-group">
-            <label class="reg-label" for="authorName">نام و نام خانوادگی یا نام مستعار:</label>
-            <input class="reg-input" type="text" id="authorName" placeholder="مثال: آرش یا نام کاربری گیت‌هاب" required>
-          </div>
-
-          <div class="reg-input-group">
-            <label class="reg-label" for="authorCategory">دسته‌بندی چالش پیشنهادی:</label>
-            <select class="reg-select" id="authorCategory">
-              <option value="Web Exploitation">Web Exploitation (وب و API Abuse)</option>
-              <option value="Reverse Engineering">Reverse Engineering (مهندسی معکوس)</option>
-              <option value="Cryptography">Cryptography (رمزنگاری)</option>
-              <option value="Binary Exploitation (Pwn)">Binary Exploitation (اکسپلویت حافظه)</option>
-              <option value="Forensics & OSINT">Forensics &amp; OSINT (جرم‌یابی و ردپا)</option>
-              <option value="AI & Agent Hardening">AI &amp; Agent Hardening (عامل‌های هوشمند)</option>
-            </select>
-          </div>
-
-          <div class="reg-input-group">
-            <label class="reg-label" for="authorLinkedin">لینکدین یا لینک رزومه فنی (اختیاری):</label>
-            <input class="reg-input mono" type="url" id="authorLinkedin" placeholder="https://linkedin.com/in/username">
-          </div>
-
-          <div class="reg-input-group">
-            <label class="reg-label" for="authorSocial">آیدی تلگرام جهت هماهنگی فنی:</label>
-            <input class="reg-input mono" type="text" id="authorSocial" placeholder="@username" required>
-          </div>
-
-          <div class="reg-input-group full-width">
-            <label class="reg-label" for="authorIdea">خلاصه ایده چالش، مکانیزم حل و وجه تمایز ضد AI:</label>
-            <textarea class="reg-textarea" id="authorIdea" placeholder="توضیح کوتاه در مورد سناریو، آسیب‌پذیری هدف و لایه‌های دفاعی سناریو..." required></textarea>
-          </div>
-
-          <div class="reg-input-group full-width">
-            <button type="submit" class="btn btn-amber" style="width: 100%; justify-content: center; padding: 14px;">
-              ارسال درخواست طراحی چالش در مخزن گیت‌هاب
-            </button>
-          </div>
-        </form>
       </div>
-    </main>
 
-    <footer>
-      <div class="mono">CTFarsi Organization &bull; 2026</div>
-      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
-        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">کانال رسمی تلگرام: @CTFarsiIR</a>
-        <a href="https://t.me/CTFarsiBot" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">ربات مسابقه: @CTFarsiBot</a>
-        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">گیت‌هاب رسمی</a>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-num">PRINCIPLE // 01</div>
+          <h3 class="card-title">ایزولاسیون کامل کانتینر (Docker Isolation)</h3>
+          <p class="card-body">هر چالش شبکه یا تحت وب باید در داکر ایزوله با کاربر غیر روت، سقف ۲۵۶ مگابایت رم، عدم دسترسی به اینترنت بیرونی و اسکریپت سلامت (Healthcheck) بسته شود.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-num">PRINCIPLE // 02</div>
+          <h3 class="card-title">لایه ضد هوش مصنوعی (Anti-AI Rigidity)</h3>
+          <p class="card-body">سناریو نباید با ارسال خام متن یا سورس کد به ایجنت‌ها یا مدل‌های زبانی مانند ChatGPT قابل حل باشد. استفاده از ترنسپوزیشن، بایت‌های متغیر و منطق‌های چندلایه الزامی است.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-num">PRINCIPLE // 03</div>
+          <h3 class="card-title">اسکریپت اثبات اکسپلویت (PoC Solver)</h3>
+          <p class="card-body">هیچ چالشی بدون اسکریپت پایتون تاییدشده که پرچم را به درستی و در کمتر از ۱۰ ثانیه استخراج کند تایید و در مخزن مرجع ادغام نخواهد شد.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-num">PRINCIPLE // 04</div>
+          <h3 class="card-title">پیوند با مسائل واقعی اکوسیستم ایران</h3>
+          <p class="card-body">اولویت با چالش‌هایی است که از ساختار واقعی وب، ترانزیت، فین‌تک، مخابرات و سامانه‌های زیرساختی کشور الهام گرفته شده باشند.</p>
+        </div>
       </div>
-      <div>توسعه داده شده برای جامعه امنیت و متخصصین سایبری</div>
-    </footer>
-  </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="site-container footer-inner">
+      <div class="mono">CTFarsi &bull; Rooted in Iran &bull; 2026</div>
+      <div class="footer-links">
+        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener">کانال تلگرام</a>
+        <a href="https://t.me/+8LrqFDIBbORkYmI8" target="_blank" rel="noopener">درخواست عضویت طراحان</a>
+        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener">سازمان گیت‌هاب</a>
+      </div>
+    </div>
+  </footer>
 
   <script src="js/app.js"></script>
 </body>
