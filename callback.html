@@ -29,6 +29,23 @@
     (function() {
       var params = new URLSearchParams(window.location.search);
       var code = params.get('code');
+      var state = params.get('state');
+      var expectedState = sessionStorage.getItem('ctf_oauth_state');
+
+      // CSRF Protection Check
+      if (expectedState && state && state !== expectedState) {
+        var statusEl = document.getElementById('cbStatus');
+        var titleEl = document.getElementById('cbTitle');
+        var descEl = document.getElementById('cbDesc');
+        var btnEl = document.getElementById('cbRetryBtn');
+        statusEl.textContent = 'CSRF BLOCKED';
+        statusEl.style.color = '#ef4444';
+        titleEl.textContent = 'خطای امنیتی نشست (CSRF Mismatch)';
+        descEl.textContent = 'نشست اعتبارسنجی نامعتبر تشخیص داده شد. لطفا مجددا تلاش کنید.';
+        btnEl.style.display = 'inline-block';
+        return;
+      }
+      sessionStorage.removeItem('ctf_oauth_state');
       var user = params.get('user') || params.get('login');
       var error = params.get('error_description') || params.get('error');
 
