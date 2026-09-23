@@ -649,6 +649,66 @@
       box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
     }
 
+    .authors-roster {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
+    .authors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .author-member-card {
+      background: #090d16;
+      border: 1px solid #2d3748;
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .author-member-card:hover {
+      border-color: #f59e0b;
+      transform: translateY(-2px);
+    }
+
+    .author-member-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid #f59e0b;
+      object-fit: cover;
+    }
+
+    .author-member-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .author-member-handle {
+      font-size: 15px;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+
+    .author-member-role {
+      font-size: 12px;
+      color: #fbbf24;
+      font-weight: 600;
+    }
+
+    .author-member-track {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
     footer {
       border-top: 1px solid var(--border);
       padding-top: 24px;
@@ -823,6 +883,14 @@
             </button>
           </div>
         </form>
+
+        <div class="authors-roster">
+          <div class="roster-header">
+            <div class="roster-title">تیم فعال طراحی و مهندسی چالش‌ها</div>
+            <div class="roster-count mono" id="authorsCount">۱ معمار فعال</div>
+          </div>
+          <div class="authors-grid" id="authorsGrid"></div>
+        </div>
       </div>
 
       <div class="sponsor-card" id="sponsorship">
@@ -1018,7 +1086,64 @@
         });
     }
 
-    document.addEventListener('DOMContentLoaded', loadParticipants);
+    var activeAuthors = [
+      {
+        github: 'm4tinbeigi-official',
+        role: 'طراح ارشد سناریو و معمار چالش‌های Anti-AI',
+        track: 'Web Exploitation, Logic Flaws & Binary Reversing'
+      }
+    ];
+
+    function renderActiveAuthors() {
+      var grid = document.getElementById('authorsGrid');
+      var countEl = document.getElementById('authorsCount');
+      if (!grid) return;
+
+      countEl.textContent = activeAuthors.length + ' معمار فعال';
+      grid.textContent = '';
+
+      activeAuthors.forEach(function(author) {
+        var card = document.createElement('a');
+        card.className = 'author-member-card';
+        card.href = 'https://github.com/' + author.github;
+        card.target = '_blank';
+        card.rel = 'noopener';
+
+        var avatar = document.createElement('img');
+        avatar.className = 'author-member-avatar';
+        avatar.src = 'https://github.com/' + author.github + '.png';
+        avatar.alt = author.github;
+
+        var info = document.createElement('div');
+        info.className = 'author-member-info';
+
+        var handle = document.createElement('div');
+        handle.className = 'author-member-handle mono';
+        handle.textContent = '@' + author.github;
+
+        var role = document.createElement('div');
+        role.className = 'author-member-role';
+        role.textContent = author.role;
+
+        var track = document.createElement('div');
+        track.className = 'author-member-track';
+        track.textContent = author.track;
+
+        info.appendChild(handle);
+        info.appendChild(role);
+        info.appendChild(track);
+
+        card.appendChild(avatar);
+        card.appendChild(info);
+
+        grid.appendChild(card);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderActiveAuthors();
+      loadParticipants();
+    });
   </script>
 
 </body>
