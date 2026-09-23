@@ -23,76 +23,8 @@ jobs:
           GH_CLIENT_SECRET: ${{ secrets.GH_CLIENT_SECRET }}
         with:
           script: |
-            const fs = require('fs');
-            const issue = context.payload.issue;
-            const user = issue.user;
-            const body = issue.body || '';
-
-            // Extract fields using Regex
-            const teamMatch = body.match(/نام تیم \/ مستعار:\*\*\s*([^
-]+)/);
-            const teamName = teamMatch ? teamMatch[1].trim() : ('تیم @' + user.login);
-
-            const tgMatch = body.match(/راه ارتباطی تلگرام:\*\*\s*([^
-]+)/);
-            const tg = tgMatch ? tgMatch[1].trim() : 'ثبت‌نشده';
-
-            const focusMatch = body.match(/تمرکز تخصصی:\*\*\s*([^
-]+)/);
-            const focus = focusMatch ? focusMatch[1].trim() : 'Full Spectrum & Anti-AI';
-
-            const dataPath = 'data/teams.json';
-            let teams = [];
-            if (fs.existsSync(dataPath)) {
-              try {
-                teams = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-              } catch (e) {
-                teams = [];
-              }
-            }
-
-            // Check if captain already registered
-            const existingIndex = teams.findIndex(t => t.captain.toLowerCase() === user.login.toLowerCase());
-            const newEntry = {
-              team_name: teamName,
-              captain: user.login,
-              avatar_url: user.avatar_url,
-              focus: focus,
-              telegram: tg,
-              registered_at: new Date().toISOString(),
-              verified: true
-            };
-
-            if (existingIndex >= 0) {
-              teams[existingIndex] = newEntry;
-            } else {
-              teams.push(newEntry);
-            }
-
-            fs.writeFileSync(dataPath, JSON.stringify(teams, null, 2), 'utf8');
-
-            // Add confirmation comment to issue
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: issue.number,
-              body: 
-            });
-
-            // Add registered label and close issue
-            await github.rest.issues.addLabels({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: issue.number,
-              labels: ['registered', 'verified']
-            });
-
-            await github.rest.issues.update({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: issue.number,
-              state: 'closed'
-            });
+            const script = require('./.github/scripts/process_registration.js');
+            await script({ github, context });
 
       - name: Commit and push changes
         run: |
