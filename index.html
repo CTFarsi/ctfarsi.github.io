@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CTFarsi | رویداد فتح پرچم کامیونیتی</title>
-  <meta name="description" content="CTFarsi: رویداد فتح پرچم مستقل و تخصصی امنیت سایبری برای کامیونیتی فارسی. چالش‌های واقعی، ضد هوش مصنوعی، زیرساخت پایدار و جوایز قطعی.">
+  <meta name="description" content="CTFarsi: رویداد فتح پرچم مستقل و تخصصی امنیت سایبری برای کامیونیتی فارسی. ثبت‌نام رسمی با گیت‌هاب، چالش‌های واقعی، ضد هوش مصنوعی و زیرساخت پایدار.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
@@ -21,6 +21,7 @@
       --code-cyan: #38bdf8;
       --code-amber: #f59e0b;
       --code-red: #f87171;
+      --github-purple: #a855f7;
     }
 
     * {
@@ -62,6 +63,8 @@
       padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
       margin-bottom: 48px;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
     .brand {
@@ -221,6 +224,220 @@
       color: var(--accent);
     }
 
+    .register-card {
+      background: radial-gradient(circle at top left, rgba(168, 85, 247, 0.08), transparent 70%), var(--card-bg);
+      border: 1px solid #3b2d54;
+      border-radius: 12px;
+      padding: 36px 32px;
+      margin-bottom: 56px;
+    }
+
+    .register-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .register-badge {
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(168, 85, 247, 0.15);
+      color: #c084fc;
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+
+    .register-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .register-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      max-width: 860px;
+    }
+
+    .reg-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .reg-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .reg-input-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .reg-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+
+    .reg-input, .reg-select {
+      background: #090d16;
+      border: 1px solid #2d3748;
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: #f8fafc;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .reg-input:focus, .reg-select:focus {
+      border-color: var(--github-purple);
+    }
+
+    .participants-roster {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .roster-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .roster-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #e2e8f0;
+    }
+
+    .roster-count {
+      font-size: 12px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: #1e293b;
+      color: var(--code-cyan);
+    }
+
+    .roster-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      min-height: 48px;
+      align-items: center;
+    }
+
+    .roster-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #0d131f;
+      border: 1px solid #1f293d;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #e2e8f0;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+
+    .roster-badge:hover {
+      border-color: var(--github-purple);
+    }
+
+    .roster-avatar {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+
+    .roster-empty {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .sponsor-card {
+      background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.06), transparent 70%), var(--card-bg);
+      border: 1px solid #1e3a5f;
+      border-radius: 12px;
+      padding: 36px 32px;
+      margin-bottom: 56px;
+    }
+
+    .sponsor-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .sponsor-badge {
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--code-cyan);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+
+    .sponsor-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .sponsor-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      max-width: 860px;
+    }
+
+    .sponsor-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .feature-item {
+      background: rgba(10, 15, 26, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .feature-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 6px;
+    }
+
+    .feature-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
     .grid-pillars {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -309,75 +526,6 @@
       color: var(--muted);
     }
 
-    .sponsor-card {
-      background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.06), transparent 70%), var(--card-bg);
-      border: 1px solid #1e3a5f;
-      border-radius: 12px;
-      padding: 36px 32px;
-      margin-bottom: 56px;
-    }
-
-    .sponsor-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .sponsor-badge {
-      font-size: 12px;
-      font-weight: 700;
-      background: rgba(56, 189, 248, 0.1);
-      color: var(--code-cyan);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 4px 12px;
-      border-radius: 6px;
-    }
-
-    .sponsor-title {
-      font-size: 22px;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-
-    .sponsor-desc {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.8;
-      margin-bottom: 24px;
-      max-width: 860px;
-    }
-
-    .sponsor-features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-      margin-bottom: 28px;
-    }
-
-    .feature-item {
-      background: rgba(10, 15, 26, 0.6);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 18px;
-    }
-
-    .feature-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: #f8fafc;
-      margin-bottom: 6px;
-    }
-
-    .feature-text {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
     .action-cta {
       background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(16, 185, 129, 0) 100%);
       border: 1px solid rgba(16, 185, 129, 0.2);
@@ -432,6 +580,17 @@
       box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
     }
 
+    .btn-purple {
+      background: var(--github-purple);
+      color: #fff;
+      border: none;
+    }
+
+    .btn-purple:hover {
+      background: #c084fc;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+    }
+
     .btn-cyan {
       background: var(--code-cyan);
       color: #0c4a6e;
@@ -469,7 +628,8 @@
     @media (max-width: 640px) {
       h1 { font-size: 26px; }
       .terminal-body { padding: 20px 16px; }
-      .sponsor-card { padding: 24px 16px; }
+      .sponsor-card, .register-card { padding: 24px 16px; }
+      .reg-form { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -482,10 +642,11 @@
         <div class="brand-title">CTFarsi</div>
       </div>
       <nav class="nav-links">
-        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener">سازمان گیت‌هاب</a>
+        <a href="#register">ثبت‌نام با گیت‌هاب</a>
         <a href="#sponsorship">اسپانسرینگ و همکاری</a>
         <a href="#pillars">اصول رقابت</a>
         <a href="#categories">دسته‌بندی‌ها</a>
+        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener">سازمان گیت‌هاب</a>
       </nav>
     </header>
 
@@ -513,6 +674,60 @@
             <div class="cli-fail">[FAIL] blubank_ctf: Error 502 Bad Gateway / Infra collapsed on load</div>
             <div class="cli-warn">[WARN] yektanet_campaign: Prize distribution stalled / Marketing promises unfulfilled</div>
             <div class="cli-ok">[READY] ctfarsi: Resilient cluster ready, anti-AI design, verified community prizes</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Registration Section -->
+      <div class="register-card" id="register">
+        <div class="register-header">
+          <div>
+            <div class="register-badge mono">GITHUB IDENTITY VERIFIED</div>
+            <h2 class="register-title">ثبت‌نام رسمی در مسابقه با هویت گیت‌هاب</h2>
+          </div>
+        </div>
+        <p class="register-desc">
+          برای شرکت در رقابت نیازی به فرم‌های طولانی یا شماره موبایل نیست. اکانت گیت‌هاب شما شناسه یکتای فنی و رسمی شما در لیدربرد خواهد بود. اطلاعات تیم خود را وارد کنید و روی ثبت نهایی کلیک نمایید تا درخواست ثبت‌نام شما در مخزن گیت‌هاب صادر شود.
+        </p>
+
+        <form class="reg-form" onsubmit="event.preventDefault(); submitRegistration();">
+          <div class="reg-input-group">
+            <label class="reg-label" for="regTeamName">نام مستعار یا نام تیم (Handle / Team Name):</label>
+            <input class="reg-input mono" type="text" id="regTeamName" placeholder="e.g. KernelPanic" required>
+          </div>
+
+          <div class="reg-input-group">
+            <label class="reg-label" for="regTrack">شاخه تخصصی اصلی:</label>
+            <select class="reg-select" id="regTrack">
+              <option value="Web Exploitation">Web Exploitation</option>
+              <option value="Reverse Engineering">Reverse Engineering</option>
+              <option value="Cryptography">Cryptography</option>
+              <option value="Binary Exploitation (Pwn)">Binary Exploitation (Pwn)</option>
+              <option value="Forensics & OSINT">Forensics & OSINT</option>
+              <option value="AI & Agent Hardening">AI & Agent Hardening</option>
+              <option value="Generalist / All Tracks">Generalist (همه شاخه‌ها)</option>
+            </select>
+          </div>
+
+          <div class="reg-input-group full-width">
+            <label class="reg-label" for="regBio">بیوگرافی کوتاه یا سوابق مسابقات قبلی (اختیاری):</label>
+            <input class="reg-input" type="text" id="regBio" placeholder="مثال: رتبه در مسابقات قبلی یا سابقه تحقیق در وب و باینری">
+          </div>
+
+          <div class="reg-input-group full-width">
+            <button type="submit" class="btn btn-purple" style="width: 100%; justify-content: center; padding: 14px;">
+              تایید و صدور ثبت‌نام با اکانت گیت‌هاب
+            </button>
+          </div>
+        </form>
+
+        <div class="participants-roster">
+          <div class="roster-header">
+            <div class="roster-title">فهرست زنده شرکت‌کنندگان ثبت‌نام شده</div>
+            <div class="roster-count mono" id="participantCount">بارگذاری...</div>
+          </div>
+          <div class="roster-list" id="participantList">
+            <div class="roster-empty">در حال واکشی اطلاعات ثبت‌نام از گیت‌هاب...</div>
           </div>
         </div>
       </div>
@@ -601,8 +816,8 @@
         <h2>عضویت و همراهی در ساخت رویداد</h2>
         <p>مشارکت در طراحی چالش‌ها، ارزیابی امنیت زیرساخت و دریافت آخرین اطلاعیه‌های مسابقه روی سازمان گیت‌هاب رسمی در دسترس است.</p>
         <div class="btn-group">
-          <a href="https://github.com/CTFarsi" class="btn btn-primary" target="_blank" rel="noopener">مشاهده سازمان گیت‌هاب CTFarsi</a>
-          <a href="https://github.com/CTFarsi/ctfarsi.github.io" class="btn btn-secondary" target="_blank" rel="noopener">مخزن وب‌سایت</a>
+          <a href="#register" class="btn btn-primary">ثبت‌نام در مسابقه با گیت‌هاب</a>
+          <a href="https://github.com/CTFarsi" class="btn btn-secondary" target="_blank" rel="noopener">سازمان گیت‌هاب CTFarsi</a>
         </div>
       </div>
     </main>
@@ -612,6 +827,82 @@
       <div>توسعه داده شده برای جامعه امنیت و متخصصین سایبری</div>
     </footer>
   </div>
+
+  <script>
+    function submitRegistration() {
+      var team = document.getElementById('regTeamName').value.trim() || 'AnonymousHacker';
+      var track = document.getElementById('regTrack').value;
+      var bio = document.getElementById('regBio').value.trim();
+
+      var issueTitle = encodeURIComponent('[REGISTRATION]: ' + team);
+      var issueBody = encodeURIComponent(
+        '### فرم ثبت‌نام مسابقه CTFarsi\n\n' +
+        '- **نام تیم / مستعار:** ' + team + '\n' +
+        '- **شاخه تخصصی:** ' + track + '\n' +
+        '- **توضیحات یا سوابق:** ' + (bio ? bio : 'ندارد') + '\n\n' +
+        '#### تعهدات فنی\n' +
+        '- [x] تعهد به عدم اجرای حملات ترافیکی (DoS/DDoS) علیه زیرساخت مسابقه\n' +
+        '- [x] تعهد به عدم انتشار یا خرید و فروش فلگ‌ها تا پایان رسمی رقابت'
+      );
+
+      var url = 'https://github.com/CTFarsi/ctfarsi.github.io/issues/new?title=' + issueTitle + '&body=' + issueBody + '&labels=registration,participant';
+      window.open(url, '_blank');
+    }
+
+    function loadParticipants() {
+      var countEl = document.getElementById('participantCount');
+      var listEl = document.getElementById('participantList');
+
+      fetch('https://api.github.com/repos/CTFarsi/ctfarsi.github.io/issues?labels=registration&state=all&per_page=100')
+        .then(function(res) {
+          if (!res.ok) throw new Error('API limit or network error');
+          return res.json();
+        })
+        .then(function(issues) {
+          countEl.textContent = issues.length + ' شرکت‌کننده ثبت‌شده';
+          listEl.textContent = '';
+          if (issues.length === 0) {
+            var emptyDiv = document.createElement('div');
+            emptyDiv.className = 'roster-empty';
+            emptyDiv.textContent = 'هنوز هیچ حسابی ثبت‌نام نکرده است. اولین نفری باشید که با هویت گیت‌هاب ثبت‌نام می‌کند.';
+            listEl.appendChild(emptyDiv);
+            return;
+          }
+
+          issues.forEach(function(issue) {
+            var user = issue.user;
+            var cleanTitle = issue.title.replace('[REGISTRATION]:', '').trim() || user.login;
+            var badge = document.createElement('a');
+            badge.className = 'roster-badge mono';
+            badge.href = issue.html_url;
+            badge.target = '_blank';
+            badge.rel = 'noopener';
+
+            var img = document.createElement('img');
+            img.className = 'roster-avatar';
+            img.src = user.avatar_url;
+            img.alt = user.login;
+
+            var span = document.createElement('span');
+            span.textContent = user.login + ' (' + cleanTitle + ')';
+
+            badge.appendChild(img);
+            badge.appendChild(span);
+            listEl.appendChild(badge);
+          });
+        })
+        .catch(function(err) {
+          countEl.textContent = 'کامیونیتی فعال';
+          listEl.textContent = '';
+          var fallbackDiv = document.createElement('div');
+          fallbackDiv.className = 'roster-empty';
+          fallbackDiv.textContent = 'برای مشاهده لیست شرکت‌کنندگان یا ثبت‌نام جدید به بخش Issues در گیت‌هاب مراجعه کنید.';
+          listEl.appendChild(fallbackDiv);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', loadParticipants);
+  </script>
 
 </body>
 </html>

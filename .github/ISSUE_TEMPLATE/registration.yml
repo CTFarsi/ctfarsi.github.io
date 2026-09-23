@@ -1,0 +1,45 @@
+name: ثبت‌نام در رویداد CTFarsi
+description: ثبت‌نام فردی یا تیمی در رقابت فتح پرچم CTFarsi با هویت گیت‌هاب
+title: "[REGISTRATION]: "
+labels: ["registration", "participant"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### فرم ثبت‌نام رسمی مسابقه CTFarsi
+        حساب گیت‌هاب شما شناسه اصلی احراز هویت شرکت‌کننده در لیدربرد خواهد بود.
+  - type: input
+    id: team_name
+    attributes:
+      label: نام مستعار یا نام تیم (Handle / Team Name)
+      placeholder: "e.g. NullPointerTeam"
+    validations:
+      required: true
+  - type: dropdown
+    id: primary_track
+    attributes:
+      label: شاخه تخصصی اصلی
+      options:
+        - Web Exploitation
+        - Reverse Engineering
+        - Cryptography
+        - Binary Exploitation (Pwn)
+        - Forensics & OSINT
+        - AI & Agent Hardening
+        - Generalist / All Tracks
+    validations:
+      required: true
+  - type: textarea
+    id: background
+    attributes:
+      label: سوابق یا تجربیات قبلی در امنیت و CTF (اختیاری)
+      placeholder: رتبه در مسابقات پیشین، تخصص‌ها یا پروژه‌های مرتبط
+  - type: checkboxes
+    id: rules_agreement
+    attributes:
+      label: تعهدنامه اخلاقی و فنی
+      options:
+        - label: تعهد به عدم اجرای حملات ترافیکی (DoS/DDoS) علیه زیرساخت مسابقه
+          required: true
+        - label: تعهد به عدم انتشار یا خرید و فروش فلگ‌ها تا پایان رسمی رقابت
+          required: true
