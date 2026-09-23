@@ -561,3 +561,28 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--muted);
   line-height: 1.5;
 }
+
+/* Brand Logo */
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Hero Badge with Logo & Map */
+.hero-header-badge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-cat-symbol {
+  width: 34px;
+  height: 34px;
+  filter: invert(1) brightness(0.9);
+  opacity: 0.85;
+}

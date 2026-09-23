@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cobaltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d0dff"/>
+      <stop offset="100%" stop-color="#0000a3"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3c68f"/>
+      <stop offset="100%" stop-color="#d4a373"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Architectural Frame -->
+  <rect x="10" y="10" width="180" height="180" rx="6" fill="#13171b" stroke="#2a323d" stroke-width="2"/>
+  <rect x="18" y="18" width="164" height="164" rx="4" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- Corner Bricks from Rooted in Iran Architectural Language -->
+  <rect x="6" y="6" width="12" height="12" fill="#0d0dff"/>
+  <rect x="182" y="6" width="12" height="12" fill="#d4a373"/>
+  <rect x="6" y="182" width="12" height="12" fill="#00bfa5"/>
+  <rect x="182" y="182" width="12" height="12" fill="#0d0dff"/>
+
+  <!-- Central Persian Geometric Cipher Motif (Iran & Digital Security) -->
+  <g transform="translate(35, 35)">
+    <!-- Grid Cipher Background -->
+    <path d="M20,20 L110,20 L110,110 L20,110 Z" fill="none" stroke="rgba(212, 163, 115, 0.15)" stroke-width="1" stroke-dasharray="2,4"/>
+    
+    <!-- Stylized IRANI / CTF Matrix -->
+    <!-- Letter I / Pillar -->
+    <path d="M35,30 L50,30 L50,100 L35,100 Z" fill="url(#goldGrad)"/>
+    
+    <!-- Letter R / Cryptographic Gate -->
+    <path d="M60,30 L95,30 C105,30 110,36 110,48 C110,60 103,66 92,66 L75,66 L108,100 L90,100 L60,66 L60,100 Z M75,44 L75,54 L90,54 C94,54 96,52 96,49 C96,46 94,44 90,44 Z" fill="#f4f5f5"/>
+
+    <!-- Cyan / Turquoise Cyber Signal Dot -->
+    <circle cx="35" cy="20" r="4" fill="#00bfa5"/>
+    <circle cx="110" cy="20" r="4" fill="#0d0dff"/>
+  </g>
+
+  <!-- Subtle Bottom Code Stamp -->
+  <text x="100" y="166" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" fill="#8d9b97" text-anchor="middle" letter-spacing="2">CTFARSI // 2026</text>
+</svg>
