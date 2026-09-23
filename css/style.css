@@ -586,3 +586,101 @@ h1, h2, h3, h4, h5, h6 {
   filter: invert(1) brightness(0.9);
   opacity: 0.85;
 }
+
+/* Rooted in Iran Tribute & Reference Section */
+.rooted-tribute-section {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 48px 0;
+  flex-wrap: wrap;
+}
+
+.rooted-tribute-artwork {
+  width: 110px;
+  height: 110px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  object-fit: cover;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.rooted-tribute-artwork:hover {
+  transform: scale(1.03);
+}
+
+.rooted-tribute-info {
+  flex: 1;
+  min-width: 260px;
+}
+
+.rooted-tribute-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--saffron);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.rooted-tribute-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--fc);
+  margin-bottom: 8px;
+}
+
+.rooted-tribute-desc {
+  font-size: 14px;
+  color: var(--fc-dim);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.rooted-tribute-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  color: var(--turquoise);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.rooted-tribute-link:hover {
+  color: var(--fc);
+  text-decoration: underline;
+}
+
+.footer-rooted-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--fc-dim);
+  text-decoration: none;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.footer-rooted-badge:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+  color: var(--fc);
+}
+
+.footer-rooted-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  object-fit: cover;
+}
