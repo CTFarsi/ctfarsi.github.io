@@ -690,3 +690,54 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 2px;
   object-fit: cover;
 }
+
+/* Header User Badge */
+.user-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  padding: 4px 12px 4px 6px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  font-size: 13px;
+}
+.user-header-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--border-light);
+  object-fit: cover;
+}
+.user-header-name {
+  font-family: var(--font-main);
+  font-weight: 700;
+  color: var(--fc);
+  white-space: nowrap;
+}
+.user-logout-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 11px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--font-main);
+}
+.user-logout-btn:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+.verified-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+}

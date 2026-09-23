@@ -63,10 +63,7 @@
       return;
     }
 
-    // Direct OAuth Authorization flow - No manual ID prompt
     var clientId = 'Ov23liedvvabvU51v0gW';
-    
-    // Direct OAuth Authorization flow with real GitHub Client ID
     var redirectUri = encodeURIComponent('https://ctfarsi.github.io/callback.html');
     var oauthUrl = 'https://github.com/login/oauth/authorize?client_id=' + clientId + '&redirect_uri=' + redirectUri + '&scope=read:user';
     window.location.href = oauthUrl;
@@ -75,53 +72,106 @@
   function logoutGitHub() {
     localStorage.removeItem('ctfarsi_user');
     updateAuthUI();
+    // Reset registration form if on register page
+    var regHandleInput = document.getElementById('regGithubHandle');
+    if (regHandleInput) {
+      regHandleInput.value = '';
+      regHandleInput.readOnly = false;
+      regHandleInput.style.backgroundColor = '';
+      regHandleInput.style.borderColor = '';
+    }
+    var authCard = document.getElementById('authStatusCard');
+    if (authCard) authCard.style.display = 'none';
+      var guestPrompt = document.getElementById('authGuestPrompt'); if (guestPrompt) guestPrompt.style.display = 'flex';
   }
 
   function updateAuthUI() {
     var raw = localStorage.getItem('ctfarsi_user');
-    var loginBtn = document.getElementById('navLoginBtn');
+    var loginBtns = [document.getElementById('navLoginBtn'), document.getElementById('authBtn')];
     var userBadge = document.getElementById('navUserBadge');
-    var authBanner = document.getElementById('authBannerBox');
+    var navImg = document.getElementById('navAvatarImg');
+    var navName = document.getElementById('navUsernameSpan');
+    
+    // Register page elements
+    var authCard = document.getElementById('authStatusCard');
+    var uAvatar = document.getElementById('userAvatar');
+    var uName = document.getElementById('userName');
+    var uHandle = document.getElementById('userHandle');
+    var regTeamName = document.getElementById('regTeamName');
     var regHandleInput = document.getElementById('regGithubHandle');
+    var regTelegram = document.getElementById('regTelegram');
+    var regFocus = document.getElementById('regFocus');
+
+    // Sponsors page elements
+    var spContact = document.getElementById('spContact');
+    var spChannel = document.getElementById('spChannel');
 
     if (raw) {
       try {
         var user = JSON.parse(raw);
-        if (loginBtn) loginBtn.style.display = 'none';
+        var displayName = user.name || user.login;
+        var avatarUrl = user.avatar_url || ('https://github.com/' + user.login + '.png');
+
+        // 1. Update Header on all pages
+        loginBtns.forEach(function(btn) {
+          if (btn) btn.style.display = 'none';
+        });
+
         if (userBadge) {
           userBadge.style.display = 'inline-flex';
-          var navImg = document.getElementById('navAvatarImg');
-          var navName = document.getElementById('navUsernameSpan');
-          if (navImg) navImg.src = user.avatar_url || ('https://github.com/' + user.login + '.png');
-          if (navName) navName.textContent = '@' + user.login;
+          if (navImg) navImg.src = avatarUrl;
+          if (navName) navName.textContent = displayName;
         }
-        if (authBanner) {
-          authBanner.style.display = 'flex';
-          var bAvatar = document.getElementById('regBannerAvatar');
-          var bName = document.getElementById('regBannerName');
-          var bHandle = document.getElementById('regBannerHandle');
-          if (bAvatar) bAvatar.src = user.avatar_url || ('https://github.com/' + user.login + '.png');
-          if (bName) bName.textContent = user.name || user.login;
-          if (bHandle) bHandle.textContent = '@' + user.login;
+
+        // 2. Auto-fill Register Page
+        var guestPrompt = document.getElementById('authGuestPrompt'); if (guestPrompt) guestPrompt.style.display = 'none';
+        if (authCard) {
+          authCard.style.display = 'block';
+          if (uAvatar) uAvatar.src = avatarUrl;
+          if (uName) uName.textContent = displayName;
+          if (uHandle) uHandle.innerHTML = '@' + user.login + ' &bull; <span style="color:#10b981;">احراز هویت شده با گیت‌هاب</span>';
         }
+
         if (regHandleInput) {
           regHandleInput.value = user.login;
           regHandleInput.readOnly = true;
-          regHandleInput.style.backgroundColor = 'rgba(16, 185, 129, 0.05)';
-          regHandleInput.style.borderColor = 'var(--accent)';
+          regHandleInput.style.backgroundColor = 'rgba(16, 185, 129, 0.08)';
+          regHandleInput.style.borderColor = '#10b981';
+          regHandleInput.style.color = 'var(--fc)';
         }
+
+        if (regTeamName && !regTeamName.value) {
+          regTeamName.value = 'تیم ' + displayName;
+        }
+
+        if (regFocus && !regFocus.value) {
+          regFocus.value = 'Full Spectrum & Anti-AI';
+        }
+
+        var savedTg = localStorage.getItem('ctfarsi_tg');
+        if (regTelegram && savedTg && !regTelegram.value) {
+          regTelegram.value = savedTg;
+        }
+
+        // 3. Auto-fill Sponsors Page
+        if (spContact && !spContact.value) {
+          spContact.value = displayName;
+        }
+        if (spChannel && savedTg && !spChannel.value) {
+          spChannel.value = savedTg;
+        }
+
       } catch(e) {
         localStorage.removeItem('ctfarsi_user');
       }
     } else {
-      if (loginBtn) loginBtn.style.display = 'inline-block';
+      // Logged out state
+      loginBtns.forEach(function(btn) {
+        if (btn) btn.style.display = 'inline-block';
+      });
       if (userBadge) userBadge.style.display = 'none';
-      if (authBanner) authBanner.style.display = 'none';
-      if (regHandleInput) {
-        regHandleInput.readOnly = false;
-        regHandleInput.style.backgroundColor = '';
-        regHandleInput.style.borderColor = '';
-      }
+      if (authCard) authCard.style.display = 'none';
+      var guestPrompt = document.getElementById('authGuestPrompt'); if (guestPrompt) guestPrompt.style.display = 'flex';
     }
   }
 

@@ -28,14 +28,19 @@
         <a href="sponsors.html" class="active">حامیان تجاری</a>
       </nav>
 
-      <div class="header-actions">
+            <div class="header-actions">
         <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener" class="tg-badge">
           <span class="tg-badge-dot"></span>
           <span>@CTFarsiIR</span>
         </a>
-        <button id="authBtn" class="btn btn-primary btn-sm" onclick="autoLoginGitHub()">
-          ورود خودکار با گیت‌هاب
+        <button id="navLoginBtn" class="btn btn-primary btn-sm" onclick="autoLoginGitHub()">
+          ورود با گیت‌هاب
         </button>
+        <div id="navUserBadge" class="user-header-badge" style="display: none;">
+          <img id="navAvatarImg" src="" alt="Avatar" class="user-header-avatar">
+          <span id="navUsernameSpan" class="user-header-name"></span>
+          <button type="button" onclick="logoutGitHub()" class="user-logout-btn" title="خروج از حساب">خروج</button>
+        </div>
       </div>
     </div>
   </header>
