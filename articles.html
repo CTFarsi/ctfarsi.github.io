@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مقالات و پایگاه دانش فنی &bull; CTFarsi</title>
+  <meta name="description" content="پایگاه مقالات تخصصی، تحلیل‌های امنیتی، راهنماهای فتح پرچم و متدولوژی‌های طراحی چالش‌های پیشرفته سایبری.">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="site-container header-inner">
+      <a href="index.html" class="brand">
+        <img src="images/logo.svg" alt="CTFarsi Logo" class="brand-logo">
+        <div class="brand-text">
+          <span class="brand-title">CTFarsi</span>
+          <span class="brand-sub">ROOTED IN IRAN &bull; CYBER COMPETITION</span>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">صفحه اصلی</a>
+        <a href="articles.html" class="active">مقالات و دانش‌نامه</a>
+        <a href="register.html">ثبت‌نام و تیم‌ها</a>
+        <a href="rules.html">قوانین رقابت</a>
+        <a href="authors.html">معماران چالش‌ها</a>
+        <a href="sponsors.html">حامیان تجاری</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener" class="tg-badge">
+          <span class="tg-badge-dot"></span>
+          <span>@CTFarsiIR</span>
+        </a>
+        <button id="authBtn" class="btn btn-primary btn-sm" onclick="autoLoginGitHub()">
+          ورود خودکار با گیت‌هاب
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-container" style="padding-top: 48px; padding-bottom: 64px;">
+    <div style="margin-bottom: 40px;">
+      <div class="heritage-pill">
+        <span>KNOWLEDGE BASE &bull; WRITEUPS &bull; RESEARCH PAPERS</span>
+      </div>
+      <h1 style="font-size: 38px; margin-bottom: 16px;">پایگاه مقالات و دانش‌نامه تخصصی امنیت</h1>
+      <p style="color: var(--fc-dim); font-size: 16px; max-width: 800px; line-height: 1.8;">
+        مجموعه تحلیل‌های فنی، تجارب عملیاتی، راهنماهای آموزشی و کالبدشکافی رخنه‌های سایبری تدارک دیده شده توسط معماران و نخبگان جامعه CTFarsi.
+      </p>
+    </div>
+
+    <!-- Featured Main Article -->
+    <div class="card" style="padding: 36px; margin-bottom: 32px; border-right: 4px solid var(--primary); background: linear-gradient(135deg, #13171b 0%, #171d24 100%);">
+      <div style="display: flex; gap: 12px; margin-bottom: 16px; align-items: center; flex-wrap: wrap;">
+        <span class="mono" style="color: var(--saffron); font-size: 12px;">FEATURED GUIDE // شماره ۰۱</span>
+        <span style="color: var(--muted); font-size: 13px;">&bull;</span>
+        <span style="color: var(--muted); font-size: 13px;">۱۲ دقیقه زمان مطالعه</span>
+      </div>
+      <h2 style="font-size: 26px; margin-bottom: 16px;">
+        <a href="article-what-is-ctf.html" style="color: var(--fc); text-decoration: none;">
+          مسابقات فتح پرچم (CTF) چیست؟ کالبدشکافی میدان نبرد سایبری و هنر نفوذ اخلاقی
+        </a>
+      </h2>
+      <p style="color: var(--fc-dim); font-size: 15px; line-height: 1.8; margin-bottom: 24px; max-width: 900px;">
+        بررسی تاریخچه مسابقات از کنفرانس DEF CON 1996 تا امروز، تفاوت فرمت‌های Jeopardy و Attack-Defense، کالبدشکافی دسته‌های وب، باینری، مهندسی معکوس و رمزنگاری، و دلایل نیاز مبرم اکوسیستم استارتاپی ایران به آزمون‌های واقعی.
+      </p>
+      <div>
+        <a href="article-what-is-ctf.html" class="btn btn-primary btn-sm">مطالعه کامل مقاله مرجع</a>
+      </div>
+    </div>
+
+    <!-- Articles Grid -->
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-num">PAPER // 02</div>
+        <h3 class="card-title">طراحی چالش‌های ضد هوش مصنوعی (Anti-AI Rigidity)</h3>
+        <p class="card-body">
+          چگونه با استفاده از ترنسپوزیشن متغیر، ابهام‌زدایی در زمان اجرا و ایزولاسیون منطقی می‌توان مانع از حل تصادفی چالش‌ها توسط مدل‌های زبانی بزرگ شد.
+        </p>
+        <span class="card-tag">METHODOLOGY // SOON</span>
+      </div>
+
+      <div class="card">
+        <div class="card-num">PAPER // 03</div>
+        <h3 class="card-title">مهار شرایط رقابتی (Race Conditions) در ریزسرویس‌های مالی</h3>
+        <p class="card-body">
+          تحلیل رخنه‌های همزمانی تراکنش در پایگاه‌های داده توزیع‌شده، روش‌های قفل‌گذاری بهینه و درس‌هایی برای پایداری نئوبانک‌ها بدون تکرار خطاهای محاسباتی.
+        </p>
+        <span class="card-tag">FINTECH DEFENSE // SOON</span>
+      </div>
+
+      <div class="card">
+        <div class="card-num">PAPER // 04</div>
+        <h3 class="card-title">حملات نشت متادیتا و جعل درخواست (SSRF) در کلود بومی</h3>
+        <p class="card-body">
+          بررسی شیوه‌های نفوذ به متادیتای زیرساخت‌های ابری و کوبرنتیز با دور زدن نرمال‌سازی آدرس‌های IP و راهکارهای مقاوم‌سازی پرتال‌های پیش‌نمایش لینک.
+        </p>
+        <span class="card-tag">CLOUD SECURITY // SOON</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="site-container footer-inner">
+      <div class="mono">CTFarsi &bull; Rooted in Iran &bull; 2026</div>
+      <div class="footer-links">
+        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener">کانال تلگرام</a>
+        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener">سازمان گیت‌هاب</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
