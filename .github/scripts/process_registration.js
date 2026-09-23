@@ -1,35 +1,53 @@
 const fs = require('fs');
 
+function sanitize(str, maxLen = 80) {
+  if (!str || typeof str !== 'string') return '';
+  return str
+    .replace(/[<>'"&]/g, '') // Strip XSS dangerous characters
+    .replace(/[\r\n\t]/g, ' ') // Strip control newlines
+    .trim()
+    .slice(0, maxLen);
+}
+
 module.exports = async ({ github, context }) => {
   const issue = context.payload.issue;
   const user = issue.user;
   const body = issue.body || '';
 
+  // Only allow valid GitHub usernames
+  if (!user || !user.login || !/^[a-zA-Z0-9-]+$/.test(user.login)) {
+    return;
+  }
+
   const lines = body.split(/\r?\n/);
-  let teamName = 'تیم @' + user.login;
-  let tg = 'ثبت نشده';
-  let focus = 'Full Spectrum & Anti-AI';
+  let rawTeamName = 'تیم @' + user.login;
+  let rawTg = 'ثبت نشده';
+  let rawFocus = 'Full Spectrum & Anti-AI';
 
   for (const line of lines) {
     if (line.includes('نام تیم')) {
       const parts = line.split('**');
       if (parts.length > 2 && parts[2].trim()) {
-        teamName = parts[2].trim();
+        rawTeamName = parts[2].trim();
       }
     }
     if (line.includes('راه ارتباطی تلگرام')) {
       const parts = line.split('**');
       if (parts.length > 2 && parts[2].trim()) {
-        tg = parts[2].trim();
+        rawTg = parts[2].trim();
       }
     }
     if (line.includes('تمرکز تخصصی')) {
       const parts = line.split('**');
       if (parts.length > 2 && parts[2].trim()) {
-        focus = parts[2].trim();
+        rawFocus = parts[2].trim();
       }
     }
   }
+
+  const teamName = sanitize(rawTeamName, 60) || ('تیم @' + user.login);
+  const tg = sanitize(rawTg, 40) || 'ثبت نشده';
+  const focus = sanitize(rawFocus, 50) || 'Full Spectrum & Anti-AI';
 
   const dataPath = 'data/teams.json';
   let teams = [];
