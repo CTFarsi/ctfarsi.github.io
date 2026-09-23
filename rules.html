@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTFarsi &bull; قوانین و چارچوب رقابت</title>
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="brand-logo mono">CTF</div>
+        <a href="index.html" style="text-decoration: none; color: inherit;" class="brand-title">CTFarsi</a>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">خانه</a>
+        <a href="register.html">ثبت‌نام و لیدربرد</a>
+        <a href="rules.html" class="active">قوانین و چارچوب</a>
+        <a href="authors.html">طراحان چالش‌ها</a>
+        <a href="sponsors.html">اسپانسرینگ</a>
+        <a href="https://t.me/CTFarsiIR" class="tg-nav-badge mono" target="_blank" rel="noopener">
+          کانال تلگرام: @CTFarsiIR
+        </a>
+        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener">سازمان گیت‌هاب</a>
+        <div id="navAuthSlot" style="display: inline-flex; align-items: center; margin-right: 12px;">
+          <button id="navLoginBtn" type="button" class="btn btn-secondary mono" style="padding: 6px 12px; font-size: 13px;" onclick="autoLoginGitHub()">
+            ورود خودکار با گیت‌هاب
+          </button>
+          <div id="navUserBadge" style="display: none; align-items: center; gap: 8px;">
+            <img id="navAvatarImg" src="" alt="avatar" style="width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--accent);">
+            <span id="navUsernameSpan" class="mono" style="color: var(--accent); font-size: 13px;"></span>
+            <button type="button" onclick="logoutGitHub()" class="btn btn-secondary mono" style="padding: 3px 8px; font-size: 11px; border-color: #ef4444; color: #ef4444;">خروج</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="page-hero">
+        <div class="badge-status mono">ETHICS, SCORING &amp; INFRASTRUCTURE RULES</div>
+        <h1>قوانین و چارچوب رقابت CTFarsi</h1>
+        <p class="lead">
+          هدف این مسابقه ارتقای مهارت‌های واقعی مهندسی معکوس، بهره‌برداری وب، رمزنگاری و پایداری در برابر هوش مصنوعی است. تمام تیم‌ها موظف به رعایت اصول اخلاقی و فنی زیر هستند.
+        </p>
+      </div>
+
+      <div class="grid-pillars" style="margin-bottom: 40px;">
+        <div class="pillar-card">
+          <div class="pillar-tag mono">FLAG FORMAT</div>
+          <h3>فرمت رسمی پرچم‌ها</h3>
+          <p>تمام پرچم‌های معتبر رقابت در قالب استانداردی به صورت <code>CTFarsi{...}</code> تعریف شده‌اند مگر اینکه در صورت چالش فرمت دیگری مشخص شود.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-tag mono">TEAM STRUCTURE</div>
+          <h3>ترکیب و سایز تیم‌ها</h3>
+          <p>امکان شرکت به صورت انفرادی یا تیم‌های ۲ تا ۴ نفره وجود دارد. تمام اعضای تیم باید پیش از شروع مسابقه هویت گیت‌هاب خود را ثبت کرده باشند.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-tag mono">DYNAMIC SCORING</div>
+          <h3>سیستم امتیازدهی پویا</h3>
+          <p>امتیاز چالش‌ها بر مبنای تعداد دفعات حل کاهش می‌یابد. تیم‌هایی که موفق به حل زودهنگام (First Blood) شوند حداکثر امتیاز اولیه سناریو را دریافت خواهند کرد.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-tag mono">ZERO TOLERANCE</div>
+          <h3>خطوط قرمز انضباطی</h3>
+          <p>هرگونه حمله محروم‌سازی از سرویس (DoS/DDoS) علیه زیرساخت مسابقه، بروت‌فورس روی درگاه‌های غیرمرتبط، یا اشتراک‌گذاری فلگ بین تیم‌ها موجب حذف دائمی خواهد شد.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-tag mono">ANTI-AI METHODOLOGY</div>
+          <h3>طراحی چالش‌های ضد هوش مصنوعی</h3>
+          <p>سناریوها به گونه‌ای طراحی شده‌اند که پرامپت‌نویسی ساده و ابزارهای خودکار LLM را به بن‌بست می‌کشانند و نیازمند درک عمیق سورس کد، منطق تجاری و دیباگ است.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-tag mono">WRITEUPS &amp; VERIFICATION</div>
+          <h3>ارائه رایت‌آپ معتبر</h3>
+          <p>نفرات اول تا سوم جهت دریافت جوایز نقدی ملزم به ارائه سورس کد اسکریپت اکسپلویت و مستندات گام‌به‌گام (Writeup) به تیم منتورها خواهند بود.</p>
+        </div>
+      </div>
+
+      <!-- DevTools Console Easter Egg Card -->
+      <div class="sponsor-card" style="border-color: #38bdf8; background: rgba(56, 189, 248, 0.03);">
+        <div class="sponsor-header">
+          <div>
+            <div class="sponsor-badge mono" style="background: rgba(56, 189, 248, 0.1); color: #38bdf8; border-color: #38bdf8;">DEVTOOLS CONSOLE WARM-UP</div>
+            <h2 class="sponsor-title">چالش دست‌گرمی شماره ۰ (Console Easter Egg)</h2>
+          </div>
+        </div>
+        <p class="sponsor-desc">
+          کلید F12 مرورگر خود را بفشارید و به تب Console مراجعه کنید. یک پیام پنهان بیس۶۴ در انتظار شماست. با اجرای توابع <code>ctfarsi.help()</code> و <code>ctfarsi.flag(...)</code> پرچم را تایید کرده و نخستین حل موفق خود را ثبت کنید.
+        </p>
+        <div class="cli-box">
+          <div class="cli-prompt mono">> F12 -> Console -> type ctfarsi.help()</div>
+          <div class="cli-info mono">[READY] Payload: Q1RGYXJzaXtjMG1tdW4xdHlfZjFyc3Rfbm9fNTAyX25vX2Y0azNfcHIxejM1fQ==</div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="mono">CTFarsi Organization &bull; 2026</div>
+      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">کانال رسمی تلگرام: @CTFarsiIR</a>
+        <a href="https://t.me/CTFarsiBot" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">ربات مسابقه: @CTFarsiBot</a>
+        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">گیت‌هاب رسمی</a>
+      </div>
+      <div>توسعه داده شده برای جامعه امنیت و متخصصین سایبری</div>
+    </footer>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

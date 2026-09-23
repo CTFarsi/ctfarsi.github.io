@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTFarsi &bull; اسپانسرینگ، جوایز و مشارکت تجاری</title>
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="brand-logo mono">CTF</div>
+        <a href="index.html" style="text-decoration: none; color: inherit;" class="brand-title">CTFarsi</a>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">خانه</a>
+        <a href="register.html">ثبت‌نام و لیدربرد</a>
+        <a href="rules.html">قوانین و چارچوب</a>
+        <a href="authors.html">طراحان چالش‌ها</a>
+        <a href="sponsors.html" class="active">اسپانسرینگ</a>
+        <a href="https://t.me/CTFarsiIR" class="tg-nav-badge mono" target="_blank" rel="noopener">
+          کانال تلگرام: @CTFarsiIR
+        </a>
+        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener">سازمان گیت‌هاب</a>
+        <div id="navAuthSlot" style="display: inline-flex; align-items: center; margin-right: 12px;">
+          <button id="navLoginBtn" type="button" class="btn btn-secondary mono" style="padding: 6px 12px; font-size: 13px;" onclick="autoLoginGitHub()">
+            ورود خودکار با گیت‌هاب
+          </button>
+          <div id="navUserBadge" style="display: none; align-items: center; gap: 8px;">
+            <img id="navAvatarImg" src="" alt="avatar" style="width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--accent);">
+            <span id="navUsernameSpan" class="mono" style="color: var(--accent); font-size: 13px;"></span>
+            <button type="button" onclick="logoutGitHub()" class="btn btn-secondary mono" style="padding: 3px 8px; font-size: 11px; border-color: #ef4444; color: #ef4444;">خروج</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="page-hero">
+        <div class="badge-status mono">PARTNERSHIPS, REAL PRIZES &amp; SPONSORSHIP</div>
+        <h1>اسپانسرینگ و مشارکت در بزرگ‌ترین رویداد کامیونیتی</h1>
+        <p class="lead">
+          ما رویدادی مستقل ساخته‌ایم تا پاسخ محکمی به مسابقات بی‌کیفیت و سرورهای داون تجاری باشد. شرکت‌های پیشرو دعوت می‌شوند تا به عنوان حامی مالی در کنار جامعه برترین هکرها و متخصصین امنیت ایران قرار گیرند.
+        </p>
+      </div>
+
+      <!-- Why Independent CTFarsi Card -->
+      <div class="sponsor-card" style="margin-bottom: 40px; border-color: #ef4444; background: rgba(239, 68, 68, 0.03);">
+        <div class="sponsor-header">
+          <div>
+            <div class="sponsor-badge mono" style="color: #ef4444; border-color: #ef4444; background: rgba(239, 68, 68, 0.1);">WHY INDEPENDENT CTFARSI</div>
+            <h2 class="sponsor-title">درس‌های گذشته: از ۵۰۲ بلوبانک تا حواشی جوایز</h2>
+          </div>
+        </div>
+        <p class="sponsor-desc">
+          جامعه امنیت سایبری بارها شاهد مسابقاتی با بودجه‌های کلان اما خروجی فاجعه‌بار بوده است: سرورهایی که با نخستین هجوم شرکت‌کنندگان ۵۰۲ دادند و ساعت‌ها از دسترس خارج شدند، یا رویدادهایی که جوایز وعده‌داده‌شده به برندگان را محقق نکردند. CTFarsi با زیرساخت غیرمتمرکز، چالش‌های اصیل ضد AI و شفافیت مطلق در جوایز، استانداردی نوین برای مسابقات امنیت بنا نهاده است.
+        </p>
+      </div>
+
+      <!-- Sponsorship Packages -->
+      <div class="grid-pillars" style="margin-bottom: 40px;">
+        <div class="pillar-card">
+          <div class="pillar-tag mono">TIER 1 &bull; GOLD</div>
+          <h3>اسپانسر طلایی (Gold Sponsor)</h3>
+          <p>نام‌گذاری اختصاصی در لیدربرد، درج لوگو در هدر سایت، طراحی سناریوی اختصاصی در چالش‌های وب یا مهندسی اجتماعی با الهام از دامین اسپانسر، و اهدای مستقیم جوایز برتر.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-tag mono">TIER 2 &bull; SILVER</div>
+          <h3>اسپانسر نقره‌ای (Silver Sponsor)</h3>
+          <p>لوگو و معرفی برند در کانال تلگرام، مستندات رسمی گیت‌هاب و رایت‌آپ‌های مسابقه، به همراه امکان جذب نیروی کارآموزی و استخدام از میان برترین تیم‌های حل‌کننده.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-tag mono">INFRASTRUCTURE</div>
+          <h3>حامی زیرساخت ابری (Cloud Partner)</h3>
+          <p>تامین سرورهای اجرای کانتینرها، ایزولاسیون پردازشی و پهنای باند مسابقه با معرفی کامل به عنوان شریک ابری رسمی رویداد در تمامی بنرها و صفحات.</p>
+        </div>
+      </div>
+
+      <!-- Sponsor Form -->
+      <div class="sponsor-card">
+        <div class="sponsor-header">
+          <div>
+            <div class="sponsor-badge mono">PARTNERSHIP INQUIRY</div>
+            <h2 class="sponsor-title">ارسال پیشنهاد اسپانسرینگ یا تامین جوایز</h2>
+          </div>
+          <a href="https://github.com/CTFarsi/ctfarsi.github.io/blob/main/SPONSORSHIP.md" target="_blank" rel="noopener" class="btn btn-cyan">
+            مشاهده سند کامل SPONSORSHIP.md
+          </a>
+        </div>
+        <p class="sponsor-desc">
+          برای هماهنگی بسته‌های حمایت مالی، اهدای جوایز به برندگان یا مطرح شدن سازمان شما در طراحی سناریوهای خلاقانه مسابقه، فرم زیر را تکمیل کنید:
+        </p>
+
+        <form class="sponsor-form" onsubmit="event.preventDefault(); submitSponsorProposal();">
+          <div class="reg-input-group">
+            <label class="reg-label" for="sponsorCompany">نام شرکت، برند یا نهاد حامی:</label>
+            <input class="reg-input" type="text" id="sponsorCompany" placeholder="مثال: شرکت ابری / استارتاپ امنیت" required>
+          </div>
+
+          <div class="reg-input-group">
+            <label class="reg-label" for="sponsorTier">سطح حمایت مورد نظر:</label>
+            <select class="reg-select" id="sponsorTier">
+              <option value="Gold Sponsor">اسپانسر طلایی (تامین جوایز رتبه‌های برتر)</option>
+              <option value="Silver Sponsor">اسپانسر نقره‌ای (حمایت مالی و جذب نیرو)</option>
+              <option value="Infrastructure Partner">حامی زیرساخت ابری و سرورها</option>
+              <option value="Community Swag & Merchandise">تامین هدایای فیزیکی و مرچندایز</option>
+            </select>
+          </div>
+
+          <div class="reg-input-group">
+            <label class="reg-label" for="sponsorContactName">نام نماینده یا مسئول ارتباطات:</label>
+            <input class="reg-input" type="text" id="sponsorContactName" placeholder="مثال: علیرضا محمدی" required>
+          </div>
+
+          <div class="reg-input-group">
+            <label class="reg-label" for="sponsorTelegram">آیدی تلگرام یا شماره مستقیم تماس:</label>
+            <input class="reg-input mono" type="text" id="sponsorTelegram" placeholder="@username یا شماره تماس" required>
+          </div>
+
+          <div class="reg-input-group full-width">
+            <label class="reg-label" for="sponsorOffer">توضیحات و پیشنهاد همکاری / مبالغ جوایز:</label>
+            <textarea class="reg-textarea" id="sponsorOffer" placeholder="توضیح دهید برند شما مایل به چه نوع مشارکت، تامین جوایز نقدی یا سناریوی بازاریابی در مسابقه است..." required></textarea>
+          </div>
+
+          <div class="reg-input-group full-width">
+            <button type="submit" class="btn btn-cyan" style="width: 100%; justify-content: center; padding: 14px;">
+              ارسال درخواست اسپانسرینگ به دبیرخانه CTFarsi
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <div class="mono">CTFarsi Organization &bull; 2026</div>
+      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+        <a href="https://t.me/CTFarsiIR" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">کانال رسمی تلگرام: @CTFarsiIR</a>
+        <a href="https://t.me/CTFarsiBot" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">ربات مسابقه: @CTFarsiBot</a>
+        <a href="https://github.com/CTFarsi" target="_blank" rel="noopener" style="color: var(--muted); text-decoration: none;">گیت‌هاب رسمی</a>
+      </div>
+      <div>توسعه داده شده برای جامعه امنیت و متخصصین سایبری</div>
+    </footer>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    function submitSponsorProposal() {
+      var company = document.getElementById('sponsorCompany').value.trim();
+      var tier = document.getElementById('sponsorTier').value;
+      var contact = document.getElementById('sponsorContactName').value.trim();
+      var tg = document.getElementById('sponsorTelegram').value.trim();
+      var offer = document.getElementById('sponsorOffer').value.trim();
+
+      var issueTitle = encodeURIComponent('[SPONSOR-INQUIRY]: ' + company + ' (' + tier + ')');
+      var issueBody = encodeURIComponent(
+        '### فرم درخواست اسپانسرینگ مسابقه CTFarsi\n\n' +
+        '- **نام شرکت / برند:** ' + company + '\n' +
+        '- **سطح همکاری پیشنهادی:** ' + tier + '\n' +
+        '- **نام نماینده:** ' + contact + '\n' +
+        '- **راه ارتباطی (تلگرام / تماس):** ' + tg + '\n\n' +
+        '#### جزئیات پیشنهاد و سناریوهای مد نظر\n' +
+        offer + '\n\n' +
+        '#### توافق اولیه\n' +
+        '- [x] آمادگی جهت عقد تفاهم‌نامه رسمی و شفافیت در اهدای جوایز به برندگان رویداد'
+      );
+
+      var url = 'https://github.com/CTFarsi/ctfarsi.github.io/issues/new?title=' + issueTitle + '&body=' + issueBody + '&labels=sponsorship,inquiry';
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
