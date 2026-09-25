@@ -3,6 +3,7 @@ import { Faq } from '@/components/landing/Faq';
 import { GetInvolved } from '@/components/landing/GetInvolved';
 import { Hero } from '@/components/landing/Hero';
 import { HowToJoin } from '@/components/landing/HowToJoin';
+import { CurrentSponsors } from '@/components/landing/CurrentSponsors';
 import { RulesGlance } from '@/components/landing/RulesGlance';
 import { Timeline } from '@/components/landing/Timeline';
 import { Tracks } from '@/components/landing/Tracks';
@@ -20,6 +21,7 @@ export default function HomePage() {
       <HowToJoin />
       <Timeline />
       <RulesGlance />
+      <CurrentSponsors />
       <GetInvolved />
       <Warmup />
       <Faq />

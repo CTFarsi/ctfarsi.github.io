@@ -36,6 +36,8 @@ export const REVEAL_SELECTOR = [
   '.terminal',
   '.warmup-keys',
   '.community-banner',
+  '.sponsor-card',
+  '.author-member-card',
   '.section-foot',
   '.article-meta',
   '.article-title',

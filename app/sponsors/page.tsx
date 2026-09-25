@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { PageIntro } from '@/components/PageIntro';
 import { SponsorForm } from '@/components/SponsorForm';
+import { IconArrow } from '@/components/Icons';
+import { SPONSORS, TIER_LABELS, type SponsorTier } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'حامیان',
@@ -8,20 +10,29 @@ export const metadata: Metadata = {
     'دعوت از برندها و کسب‌وکارهای ایرانی برای حمایت مالی شفاف و اهدای جوایز به متخصصان امنیت سایبری.',
 };
 
-const TIERS = [
+const TIERS: {
+  key: SponsorTier;
+  num: string;
+  title: string;
+  body: string;
+  tag: string;
+}[] = [
   {
+    key: 'gold',
     num: 'TIER // GOLD',
     title: 'حامی زرین (Gold Sponsor)',
     body: 'طراحی چالش اختصاصی روی معماری و محصول برند شما، درج لوگو در صدر رویداد، دسترسی مستقیم برای مصاحبه و جذب نفرات برتر، و اهدای جایزه اصلی به تیم‌های برنده.',
     tag: 'EXCLUSIVE CHALLENGE DESIGN',
   },
   {
+    key: 'silver',
     num: 'TIER // SILVER',
     title: 'حامی سیمین (Silver Sponsor)',
     body: 'درج نام تجاری در وب‌سایت و کانال تلگرام، تقدیر رسمی در اطلاعیه‌ها و معرفی فرصت‌های شغلی فنی شرکت.',
     tag: 'ECOSYSTEM BRANDING',
   },
   {
+    key: 'infrastructure',
     num: 'TIER // INFRASTRUCTURE',
     title: 'حامی زیرساخت ابری (Cloud Partner)',
     body: 'تأمین سرورها و پایداری کانتینرها در طول مسابقه، با دسترس‌پذیری کامل برای شرکت‌کنندگان سراسر کشور.',
@@ -45,12 +56,45 @@ const WHY = [
 ];
 
 export default function SponsorsPage() {
+  const confirmed = SPONSORS;
+
   return (
     <div className="site-container page">
       <PageIntro eyebrow="حمایت" title="روی متخصصان امنیت وب فارسی سرمایه‌گذاری کنید">
         CTFarsi بنر و لوگوی بی‌کاربرد نمی‌فروشد. برند و محصول حامیان در مرکز چالش‌ها قرار می‌گیرد و تمام
         مبلغ حمایت صرف جایزه برندگان می‌شود.
       </PageIntro>
+
+      {confirmed.length > 0 && (
+        <section className="subsection">
+          <h2 className="subsection-title">حامیان فعلی</h2>
+          <p className="subsection-desc">
+            برندهایی که تا امروز به رویداد پیوسته‌اند. جای خالی برای حامیان بیشتر باز است.
+          </p>
+          <div className="sponsor-grid">
+            {confirmed.map((s) => (
+              <a
+                key={s.href}
+                href={s.href}
+                target="_blank"
+                rel="noopener"
+                className={`sponsor-card sponsor-card-${s.tier}`}
+              >
+                <img className="sponsor-card-logo" src={s.logo} alt="" width={56} height={56} />
+                <div className="sponsor-card-body">
+                  <div className="sponsor-card-kicker">{TIER_LABELS[s.tier].en}</div>
+                  <h3>{s.nameFa}</h3>
+                  <p>{s.blurb}</p>
+                  <span className="text-link">
+                    <span dir="ltr">{s.href.replace(/^https?:\/\//, '')}</span>
+                    <IconArrow />
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="subsection">
         <h2 className="subsection-title">چرا حامی CTFarsi شوید؟</h2>
@@ -67,16 +111,31 @@ export default function SponsorsPage() {
 
       <section className="subsection">
         <h2 className="subsection-title">بسته‌های حمایت</h2>
-        <p className="subsection-desc">سه سطح همکاری برای شرکت‌ها و تیم‌های فنی.</p>
+        <p className="subsection-desc">سه سطح همکاری برای شرکت‌ها و تیم‌های فنی. کنار هم رشد می‌کنیم.</p>
         <div className="grid-3">
-          {TIERS.map((t) => (
-            <div key={t.num} className="card">
-              <div className="card-num">{t.num}</div>
-              <h3 className="card-title">{t.title}</h3>
-              <p className="card-body">{t.body}</p>
-              <span className="card-tag">{t.tag}</span>
-            </div>
-          ))}
+          {TIERS.map((t) => {
+            const inTier = confirmed.filter((s) => s.tier === t.key);
+            return (
+              <div key={t.num} className="card">
+                <div className="card-num">{t.num}</div>
+                <h3 className="card-title">{t.title}</h3>
+                <p className="card-body">{t.body}</p>
+                {inTier.length > 0 && (
+                  <ul className="sponsor-tier-list">
+                    {inTier.map((s) => (
+                      <li key={s.href}>
+                        <a href={s.href} target="_blank" rel="noopener">
+                          <img src={s.logo} alt="" width={22} height={22} />
+                          <span dir="ltr">{s.name}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <span className="card-tag">{t.tag}</span>
+              </div>
+            );
+          })}
         </div>
       </section>
 

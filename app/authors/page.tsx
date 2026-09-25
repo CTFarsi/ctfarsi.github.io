@@ -9,9 +9,20 @@ export const metadata: Metadata = {
 
 const ACTIVE_AUTHORS = [
   {
-    github: 'm4tinbeigi-official',
+    name: 'Matin',
+    handle: '@m4tinbeigi-official',
+    href: 'https://github.com/m4tinbeigi-official',
+    avatar: 'https://github.com/m4tinbeigi-official.png',
     role: 'طراح ارشد سناریو و معمار چالش‌های Anti-AI',
     track: 'Web Exploitation, Logic Flaws & Binary Reversing',
+  },
+  {
+    name: 'Erwin',
+    handle: '@Erwinamm',
+    href: 'https://x.com/Erwinamm',
+    avatar: '/images/authors/erwinamm.png',
+    role: 'طراح چالش و اعتبارسنجی سناریوها',
+    track: 'Web, Infra & Challenge Validation',
   },
 ];
 
@@ -66,21 +77,21 @@ export default function AuthorsPage() {
         <p className="subsection-desc">متخصصانی که در حال طراحی و اعتبارسنجی چالش‌ها در مخزن خصوصی هستند.</p>
         <div className="grid-3">
           {ACTIVE_AUTHORS.map((author) => (
-            <div key={author.github} className="author-member-card">
+            <div key={author.handle} className="author-member-card">
               <img
                 className="author-member-avatar"
-                src={`https://github.com/${author.github}.png`}
+                src={author.avatar}
                 alt=""
                 loading="lazy"
               />
               <div style={{ minWidth: 0 }}>
                 <a
                   className="author-member-handle mono"
-                  href={`https://github.com/${author.github}`}
+                  href={author.href}
                   target="_blank"
                   rel="noopener"
                 >
-                  @{author.github}
+                  {author.handle}
                 </a>
                 <div className="author-member-role">{author.role}</div>
                 <div className="author-member-track">{author.track}</div>

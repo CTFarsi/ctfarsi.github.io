@@ -207,6 +207,8 @@ code {
       .terminal,
       .warmup-keys,
       .community-banner,
+      .sponsor-card,
+      .author-member-card,
       .section-foot,
       .article-meta,
       .article-title,
@@ -1991,11 +1993,152 @@ textarea.input-field {
   object-fit: cover;
 }
 
+.footer-credits {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 28px;
+  padding-bottom: 20px;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}
+
+.footer-sponsors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
+.footer-sponsor {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--fc-dim);
+  text-decoration: none;
+  font-size: 14px;
+}
+.footer-sponsor img {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+}
+.footer-sponsor:hover {
+  color: var(--fc);
+}
+.footer-sponsor strong {
+  color: var(--fc);
+  font-weight: 700;
+}
+
+.footer-builders {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+}
+.footer-builders a {
+  color: var(--fc-dim);
+  text-decoration: none;
+}
+.footer-builders a:hover {
+  color: var(--turquoise);
+}
+
 .footer-bottom {
   border-top: 1px solid var(--border);
   padding-top: 20px;
   padding-bottom: 24px;
   font-size: 13px;
+}
+
+/* ---------- Sponsors ---------- */
+
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.sponsor-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px 24px;
+  background: linear-gradient(135deg, #13171b 0%, #171d24 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.sponsor-card:hover {
+  border-color: var(--border-strong);
+  background: linear-gradient(135deg, #151a1f 0%, #1a2129 100%);
+}
+.sponsor-card-gold {
+  border-color: rgba(212, 163, 115, 0.35);
+}
+.sponsor-card-gold:hover {
+  border-color: rgba(212, 163, 115, 0.55);
+}
+.sponsor-card-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  border: 1px solid var(--border-strong);
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #0b0d10;
+}
+.sponsor-card-body {
+  min-width: 0;
+}
+.sponsor-card-kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--saffron);
+  margin-bottom: 4px;
+}
+.sponsor-card-body h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: var(--fc);
+}
+.sponsor-card-body p {
+  color: var(--fc-dim);
+  font-size: 14px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.sponsor-tier-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 14px 0 12px;
+  padding: 0;
+}
+.sponsor-tier-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--fc);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+.sponsor-tier-list a:hover {
+  color: var(--turquoise);
+}
+.sponsor-tier-list img {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  object-fit: cover;
 }
 
 /* ---------- Responsive ---------- */
@@ -2099,6 +2242,10 @@ textarea.input-field {
   }
   .section {
     padding: 64px 0;
+  }
+  .footer-credits {
+    flex-direction: column;
+    align-items: flex-start;
   }
   .hero {
     padding: 48px 0 64px;

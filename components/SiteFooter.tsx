@@ -1,7 +1,9 @@
 import Link from 'next/link';
-import { LINKS, NAV_ITEMS } from '@/lib/site';
+import { BUILDERS, LINKS, NAV_ITEMS, SPONSORS, TIER_LABELS } from '@/lib/site';
 
 export function SiteFooter() {
+  const goldSponsors = SPONSORS.filter((s) => s.tier === 'gold');
+
   return (
     <footer className="footer">
       <div className="site-container footer-grid">
@@ -49,6 +51,41 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
+
+      {(goldSponsors.length > 0 || BUILDERS.length > 0) && (
+        <div className="site-container footer-credits">
+          {goldSponsors.length > 0 && (
+            <div className="footer-sponsors">
+              {goldSponsors.map((s) => (
+                <a
+                  key={s.href}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener"
+                  className="footer-sponsor"
+                >
+                  <img src={s.logo} alt="" width={28} height={28} />
+                  <span>
+                    {TIER_LABELS.gold.fa}: <strong dir="ltr">{s.name}</strong>
+                  </span>
+                </a>
+              ))}
+            </div>
+          )}
+          <p className="footer-builders">
+            ساخته‌شده توسط{' '}
+            {BUILDERS.map((b, i) => (
+              <span key={b.href}>
+                {i > 0 && (i === BUILDERS.length - 1 ? ' و ' : '، ')}
+                <a href={b.href} target="_blank" rel="noopener">
+                  {b.name} <span dir="ltr" className="mono">{b.handle}</span>
+                </a>
+              </span>
+            ))}
+          </p>
+        </div>
+      )}
+
       <div className="site-container footer-bottom">
         <span className="mono">CTFarsi &bull; Rooted in Iran &bull; 2026</span>
       </div>
