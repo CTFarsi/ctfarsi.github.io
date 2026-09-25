@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -20,6 +20,30 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Ensure Pages uses GitHub Actions
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Branch-based Pages publishes the Next.js source (no index.html) and 404s.
+          # Force the Actions build_type so this workflow's out/ artifact is what goes live.
+          if gh api "repos/${{ github.repository }}/pages" >/tmp/pages.json 2>/dev/null; then
+            current=$(python3 -c 'import json; print(json.load(open("/tmp/pages.json")).get("build_type",""))')
+            echo "Current Pages build_type=$current"
+            if [ "$current" != "workflow" ]; then
+              gh api "repos/${{ github.repository }}/pages" -X PUT -f build_type=workflow
+              echo "Switched Pages build_type to workflow"
+            fi
+          else
+            gh api "repos/${{ github.repository }}/pages" -X POST \
+              -f build_type=workflow \
+              -f 'source[branch]=main' \
+              -f 'source[path]=/'
+            echo "Created Pages site with build_type=workflow"
+          fi
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -32,6 +56,13 @@ jobs:
 
       - name: Build static site
         run: npm run build
+
+      - name: Verify export
+        run: |
+          test -f out/index.html
+          test -f out/.nojekyll
+          test -d out/_next
+          ls -la out | head -30
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
