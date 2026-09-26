@@ -36,7 +36,7 @@ export const TIER_LABELS: Record<SponsorTier, { fa: string; en: string }> = {
 /** Site builders / organizers credited in the footer. */
 export const BUILDERS = [
   {
-    name: 'Matin',
+    name: 'Rick',
     href: 'https://x.com/m4tinbeigi',
     handle: '@m4tinbeigi',
   },

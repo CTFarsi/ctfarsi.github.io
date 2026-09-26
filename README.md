@@ -7,7 +7,7 @@ Independent, community-run CTF for Persian-speaking security enthusiasts.
 
 CTFarsi focuses on stable infrastructure, Anti-AI challenge design, transparent GitHub-based registration, and sponsorship that funds prizes (not empty banner ads).
 
-Built by [Matin](https://x.com/m4tinbeigi) and [Erwin](https://x.com/Erwinamm). Visual identity inspired by [Rooted in Iran](https://rootediniran.com/).
+Built by [Rick](https://x.com/m4tinbeigi) and [Erwin](https://x.com/Erwinamm). Visual identity inspired by [Rooted in Iran](https://rootediniran.com/).
 
 ---
 
